@@ -10,7 +10,7 @@
 		protected $query;
 		protected $rows = array();
 		private $connection;
-		public $mensaje = 'Hecho';
+		public $mensaje;
 
 		//metodos abstractos para ABM de las clases que hereden
 		abstract protected function get();
@@ -46,6 +46,7 @@
 			$this->close_connection();
 			array_pop($this->rows);
 		}
+		//TODO: agregar patron singleton
 	}
 
  ?>
