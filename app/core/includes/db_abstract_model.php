@@ -3,10 +3,10 @@
 
 	abstract class DBAbstractModel{
 
-		private static $db_host = Config::$db_host;
-		private static $db_user = Config::$db_user;
-		private static $db_pass = Config::$db_pass;
-		protected $db_name 		= Config::$db_name;
+		private static $db_host = Config::db_host;
+		private static $db_user = Config::db_user;
+		private static $db_pass = Config::db_pass;
+		private static $db_name = Config::db_name;
 		protected $query;
 		protected $rows = array();
 		private $_connection;
