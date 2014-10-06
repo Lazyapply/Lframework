@@ -1,2 +1,5 @@
 #Options -Indexes
 DirectoryIndex site_map/index.php
+
+
+RewriteRule ^([a-z]+)$  site_map/index.php?m=core&event=$1 [PT,QSA]

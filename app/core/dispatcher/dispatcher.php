@@ -25,6 +25,117 @@
 		private $params = array();
 		private $action;
 
+		//enrutamiento
+		public $map = array(
+				'inicio' 	=> array('controller' 	=> CORE, 	'action' 	=> GO_INI),
+				'about' 	=> array('controller' 	=> CORE, 	'action' 	=> GO_ABOUT)
+				);
+
+		function handler(){
+
+			if(isset($_GET['event'])){
+
+				if(isset($map[$_GET['event']])){
+
+					$event = $_GET['event'];
+				}
+				else{
+					header('Status: 404 Not Found');
+					echo '<html><body><h1>Error 404: No existe la ruta <i>'.
+					$_GET['event'].'</p></body></html>';
+					exit;
+				}
+			}
+			else{
+				$event = GO_INI;
+			}
+
+		#mapeamos lo necesario para el controlador
+		$controlador = $this->map[$event];
+
+		//cogemos la ruta del controlador
+		if($controlador['controller'] == CORE){
+			$controller_path = ROOT.DS.'app'.DS.CORE.DS.'controller.php';
+		}
+		else{
+			$controller_path = MODULES.DS.$controlador['controller'].DS.'controller.php';
+		}
+		#incluimos el controlador.
+		require_once $controller_path;
+
+		#a partir de aqui el controlador comienza su ejecución
+		#y devuelve el contenido generado.
+		if(function_exists('handler'))
+			$content = call_user_func('handler', $event);
+
+		else{
+			header('Status: 404 Not Found');
+			$content = '<html><body><h1>Error 404: El controlador <i>' .
+			$controlador['controller'].'->'.$controlador['action'].
+			'</i> no existe</h1></body></html>';
+		
+		}
+
+		//Imprimimos el contenido
+		print($content);
+			
+		}
 
 	}
+
+
+
+	/*
+	
+	//enrutamiento
+	$map = array(
+				'inicio' 	=> array('controller' 	=> CORE, 	'action' 	=> GO_INI),
+				'about' 	=> array('controller' 	=> CORE, 	'action' 	=> GO_ABOUT)
+			
+				);
+
+	//construcción de la ruta
+	if(isset($_GET['event'])){
+		if(isset($map[$_GET['event']])){
+			$event = $_GET['event'];
+		}
+		else{
+			header('Status: 404 Not Found');
+			echo '<html><body><h1>Error 404: No existe la ruta <i>'.
+			$_GET['event'].'</p></body></html>';
+			exit;
+		}
+	}
+	else{
+		$event = GO_INI;
+	}
+
+	#mapeamos lo necesario para el controlador
+	$controlador = $map[$event];
+
+	//cogemos la ruta del controlador
+	$controller_path = $_SERVER['DOCUMENT_ROOT'].F_NAME.'/app/modules/'.$controlador['controller'].'/controller.php';
+	
+	#incluimos el controlador.
+	require_once $controller_path;
+
+	#a partir de aqui el controlador comienza su ejecución
+	#y devuelve el contenido generado.
+	if(function_exists('handler'))
+		$content = call_user_func('handler', $event);
+
+	else{
+		header('Status: 404 Not Found');
+		$content = '<html><body><h1>Error 404: El controlador <i>' .
+		$controlador['controller'].'->'.$controlador['action'].
+		'</i> no existe</h1></body></html>';
+	
+	}
+
+	//Imprimimos el contenido
+	print($content);
+
+
+
+	 */
 ?>
