@@ -30,8 +30,8 @@
 			'subtitulo'		=> array(VIEW_INI		=> 'Framework para MVC en php',
 									 VIEW_ABOUT		=> 'Framework para MVC en php'
 									),
-			'links_menu'	=> array('VIEW_INI'		=> WEB_NAME.DS.VIEW_INI,
-									 'VIEW_ABOUT'	=> WEB_NAME.DS.VIEW_ABOUT
+			'links_menu'	=> array('VIEW_INI'		=> GO_INI,
+									 'VIEW_ABOUT'	=> GO_ABOUT
 									)
 						);
 

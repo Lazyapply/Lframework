@@ -2,4 +2,8 @@
 DirectoryIndex site_map/index.php
 
 
+RewriteEngine  on
+
+#RewriteRule ^$ site_map/index.php?m=$1
 RewriteRule ^([a-z]+)$  site_map/index.php?m=core&event=$1 [PT,QSA]
+RewriteRule ^([a-z]+)/([a-z]+)$  site_map/index.php?m=$1&event=$2 [PT,QSA]

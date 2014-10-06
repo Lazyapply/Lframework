@@ -20,10 +20,10 @@
 
 	class dispatcher{
 
-		private $module;
+		// private $module;
 		private $event;
-		private $params = array();
-		private $action;
+		// private $params = array();
+		// private $action;
 
 		//enrutamiento
 		public $map = array(
@@ -31,13 +31,13 @@
 				'about' 	=> array('controller' 	=> CORE, 	'action' 	=> GO_ABOUT)
 				);
 
-		function handler(){
+		function bootLoader(){
 
 			if(isset($_GET['event'])){
 
-				if(isset($map[$_GET['event']])){
+				if(isset($this->map[$_GET['event']])){
 
-					$event = $_GET['event'];
+					$this->event = $_GET['event'];
 				}
 				else{
 					header('Status: 404 Not Found');
@@ -47,11 +47,11 @@
 				}
 			}
 			else{
-				$event = GO_INI;
+				$this->event = GO_INI;
 			}
 
 		#mapeamos lo necesario para el controlador
-		$controlador = $this->map[$event];
+		$controlador = $this->map[$this->event];
 
 		//cogemos la ruta del controlador
 		if($controlador['controller'] == CORE){
@@ -66,7 +66,7 @@
 		#a partir de aqui el controlador comienza su ejecución
 		#y devuelve el contenido generado.
 		if(function_exists('handler'))
-			$content = call_user_func('handler', $event);
+			$content = call_user_func('handler', $this->event);
 
 		else{
 			header('Status: 404 Not Found');

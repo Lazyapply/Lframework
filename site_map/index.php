@@ -4,6 +4,7 @@
 	// echo ROOT.DS.'app'.DS.CORE.DS.'dispatcher'.DS.'dispatcher.php';
 	
 	$bootstrap = new dispatcher();
-	$bootstrap->handler();
+	$bootstrap->bootLoader();
+
 
  ?>
