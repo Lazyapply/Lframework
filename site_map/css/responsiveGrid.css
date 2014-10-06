@@ -1,0 +1,266 @@
+
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+
+body {
+  margin: 0;
+}
+
+
+/*
+  Todos los Elementos como bloque
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+
+
+/*
+  Esta clase te pone todos los bordes para que veas el diseño
+ */
+.outline, .outline *{
+    outline: 2px solid #EF5A5A;
+}
+
+a {
+  background: transparent;
+}
+
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html {
+  font-size: 1.4em;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+
+a {
+  color: #428bca;
+  text-decoration: none;
+}
+
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+img {
+  vertical-align: middle;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin-bottom: 0;
+}
+
+.x-1, .m-1, .l-1, .x-2, .m-2, .l-2, .x-3, .m-3, .l-3, .x-4, .m-4, .l-4, .x-5, .m-5, .l-5, .x-6, .m-6, .l-6, .x-7, .m-7, .l-7, .x-8, .m-8, .l-8, .x-9, .m-9, .l-9, .x-10, .m-10, .l-10, .x-11, .m-11, .l-11, .x-12, .m-12, .l-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.x-1, .x-2, .x-3, .x-4, .x-5, .x-6, .x-7, .x-8, .x-9, .x-10, .x-11, .x-12 {
+  float: left;
+}
+.x-12 {
+  width: 100%;
+}
+.x-11 {
+  width: 91.66666667%;
+}
+.x-10 {
+  width: 83.33333333%;
+}
+.x-9 {
+  width: 75%;
+}
+.x-8 {
+  width: 66.66666667%;
+}
+.x-7 {
+  width: 58.33333333%;
+}
+.x-6 {
+  width: 50%;
+}
+.x-5 {
+  width: 41.66666667%;
+}
+.x-4 {
+  width: 33.33333333%;
+}
+.x-3 {
+  width: 25%;
+}
+.x-2 {
+  width: 16.66666667%;
+}
+.x-1 {
+  width: 8.33333333%;
+}
+
+/***************************************
+  x-* Para dispositivos pequeños ( Hasta 728px de anchura )
+
+  m-* Para dispositivos medianos ( Hasta 1024px de anchura )
+
+  l-* Para PC's                  ( 1024px en adelante )
+
+****************************************/
+@media (min-width: 728px) {
+  .m-1, .m-2, .m-3, .m-4, .m-5, .m-6, .m-7, .m-8, .m-9, .m-10, .m-11, .m-12 {
+    float: left;
+  }
+  .m-12 {
+    width: 100%;
+  }
+  .m-11 {
+    width: 91.66666667%;
+  }
+  .m-10 {
+    width: 83.33333333%;
+  }
+  .m-9 {
+    width: 75%;
+  }
+  .m-8 {
+    width: 66.66666667%;
+  }
+  .m-7 {
+    width: 58.33333333%;
+  }
+  .m-6 {
+    width: 50%;
+  }
+  .m-5 {
+    width: 41.66666667%;
+  }
+  .m-4 {
+    width: 33.33333333%;
+  }
+  .m-3 {
+    width: 25%;
+  }
+  .m-2 {
+    width: 16.66666667%;
+  }
+  .m-1 {
+    width: 8.33333333%;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .l-1, .l-2, .l-3, .l-4, .l-5, .l-6, .l-7, .l-8, .l-9, .l-10, .l-11, .l-12 {
+    float: left;
+  }
+  .l-12 {
+    width: 100%;
+  }
+  .l-11 {
+    width: 91.66666667%;
+  }
+  .l-10 {
+    width: 83.33333333%;
+  }
+  .l-9 {
+    width: 75%;
+  }
+  .l-8 {
+    width: 66.66666667%;
+  }
+  .l-7 {
+    width: 58.33333333%;
+  }
+  .l-6 {
+    width: 50%;
+  }
+  .l-5 {
+    width: 41.66666667%;
+  }
+  .l-4 {
+    width: 33.33333333%;
+  }
+  .l-3 {
+    width: 25%;
+  }
+  .l-2 {
+    width: 16.66666667%;
+  }
+  .l-1 {
+    width: 8.33333333%;
+  }
+}
