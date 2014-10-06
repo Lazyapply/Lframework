@@ -14,11 +14,6 @@
 		private $_connection;
 		public $mensaje;
 
-		//metodos abstractos para ABM de las clases que hereden
-		abstract protected function get();
-		abstract protected function set();
-		abstract protected function edit();
-		abstract protected function delete();
 
 		private function _open_connection(){
 			$this->_connection = new mysqli($this->db_host, $this->db_user,
