@@ -20,7 +20,7 @@
 
 		private function _open_connection(){
 			$this->_connection = new mysqli(self::$db_host, self::$db_user,
-			                               self::$db_pass, self::db_name);
+			                               self::$db_pass, self::$db_name);
 		}
 
 		private function _close_connection(){
@@ -29,9 +29,9 @@
 
 		protected function execute_single_query(){
 			if($_POST){
-				$this->open_contection();
+				$this->_open_connection();
 				$this->_connection->query($this->query);
-				$this->close_connection();
+				$this->_close_connection();
 			}
 			else{
 				$this->mensaje = 'Metodo no permitido';
@@ -39,11 +39,11 @@
 		}
 
 		protected function get_results_from_query(){
-			$this->open_contection();
+			$this->_open_connection();
 			$result = $this->_connection->query($this->query);
 			while($this->rows[] = $result->cubrid_fetch_assoc());
 			$result->close();
-			$this->close_connection();
+			$this->_close_connection();
 			array_pop($this->rows);
 		}
 		//TODO: agregar patron singleton
