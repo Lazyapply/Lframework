@@ -1,6 +1,6 @@
 <?php 
 /**********************************************************
-	Módulo:				----
+	Módulo:				CORE
 	Archivo:			dispatcher.php
 	Alias:				BootLoader
 	Fecha creacion:		06/10/2014
