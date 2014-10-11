@@ -4,10 +4,10 @@
 	abstract class DBAbstractModel {
 
 		//TODO: externelizar la configuración
-		private $db_host 	= 'localhost';
-		private $db_user 	= 'rita';
-		private $db_pass 	= 'rita1234';
-		private $db_name 	= 'lframework';
+		private $db_host 	= DB_HOST;
+		private $db_user 	= DB_USER;
+		private $db_pass 	= DB_PASS;
+		private $db_name 	= DB_NAME;
 
 		protected $query;
 		protected $rows = array();
