@@ -24,19 +24,21 @@
 		public  function __construct(){
 			if(isset($_GET['url'])){
 
-				$url = filter_input(INPUT_GET,'url', FILETER_SANITIZE_URL);
+				$url = filter_input(INPUT_GET,'url', FILTER_SANITIZE_URL);
 				// explode divide la url, es como el strtok
-				$url = explode('', $url);
+				echo '<b>URL: </b>'.$url.'<br><br>';
+
+				$url = explode('/', $url);
 				// elimina todos los slash de mas
-				$url = array_filter($url);
+				//$url = array_filter($url);
 
 				// asignamos las variables
-				$this->_controlller = array_shift($url);
-				$this->_metodo = array_shift($url);
+				$this->_controller = array_shift($url);
+				$this->_method = array_shift($url);
 				$this->_args = $url;
 			}
 			else{
-				
+				echo "else";
 				if(!$this->_controller){
 				$this->_controller = DEFAULT_CONTROLLER;
 				}

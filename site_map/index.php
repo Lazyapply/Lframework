@@ -7,6 +7,9 @@
 	// $bootstrap = new dispatcher();
 	// $bootstrap->bootLoader();
 
+	echo '<br>ROOT: '.ROOT;
+	echo '<br>MODULES: '.MODULES;
+	echo '<br><hr>';
 	$rq = new request();
 
 	echo 'Controller: '.$rq->getController().'<br>';

@@ -8,9 +8,10 @@
 
 
 	#rutas
-	define('DS', DIRECTORY_SEPARATOR);
-	define('ROOT', realpath(dirname(__FILE__)).DS);
-	define('MODULES', ROOT.'..'.DS.'modules'.DS);
+	define('DS', DIRECTORY_SEPARATOR);	
+	define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+	//define('ROOT', realpath(dirname(__FILE__)).DS);
+	define('MODULES', ROOT.DS.'modules');
 
 
 ?>
