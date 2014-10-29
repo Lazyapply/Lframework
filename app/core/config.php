@@ -8,6 +8,6 @@
 
 
 	#Controllers
-	define('DEFAULT_CONTROLLER', 'index');
+	define('DEFAULT_CONTROLLER', 'core');
 
 ?>

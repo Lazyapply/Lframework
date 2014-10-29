@@ -22,7 +22,7 @@
 
 
 		public  function __construct(){
-			if(isset($_GET['url'])){
+			if(isset($_GET['url']) && ($_GET['url'] != 'site_map/index.php')){
 
 				$url = filter_input(INPUT_GET,'url', FILTER_SANITIZE_URL);
 				// explode divide la url, es como el strtok
