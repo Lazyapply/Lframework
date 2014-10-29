@@ -14,8 +14,8 @@
 	**********************************************************/
 
 	require_once 'constants.php';
-	require_once 'model.php';
-	require_once 'view.php';
+	require_once 'core.model.php';
+	require_once 'core.view.php';
 
 
 	#controlador

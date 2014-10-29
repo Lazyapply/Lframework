@@ -4,7 +4,7 @@
 	Archivo:			request.php
 	Alias:				----
 	Fecha creacion:		11/10/2014
-	Ultima modif:		11/10/2014
+	Ultima modif:		28/10/2014
 	Versión: 			0.1
 	Autor: 				@dvel_
 
@@ -38,7 +38,7 @@
 				$this->_args = $url;
 			}
 			else{
-				echo "else";
+				
 				if(!$this->_controller){
 				$this->_controller = DEFAULT_CONTROLLER;
 				}

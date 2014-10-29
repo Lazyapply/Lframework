@@ -15,5 +15,19 @@
 **********************************************************/
 
 	// echo ROOT.DS.'app'.DS.CORE.'controller.php';
+	requiere_once 'request.php';
+
+	class dispatcher extends request{
+
+		private $_controller;
+		private $_method;
+		private $_args = array();
+
+		function bootLoader(){
+			$_controller = parent::getController();
+			$_method = parent::getMethod();
+			$_args   = parent::getArgs();
+		}
+	}
 	
 ?>
