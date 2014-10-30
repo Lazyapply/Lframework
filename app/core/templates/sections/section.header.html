@@ -7,8 +7,12 @@
 	<title>{titulo}</title>
 	<link rel="stylesheet" href="site_map/css/responsiveGrid.css">
 	<link rel="stylesheet" href="site_map/css/normalize.css">
-	<link rel="stylesheet" href="site_map/css/Lframework.css">
-	
+	<link rel="stylesheet" href="<?php echo CSS_PATH.DS.'Lframework.css'?>">
+	<?php 
+		  echo 'ruta del archivo: '.__DIR__;
+		  //require_once '../../constants.php';
+		  echo '<br>ruta del css: '.CORE_PATH.DS.'site_map'.DS.'css';
+	?>
 </head>
 <body>
 	<div id="caja_principal">
