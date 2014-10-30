@@ -26,7 +26,7 @@
 	define('ROOT', $_SERVER['DOCUMENT_ROOT'].DS.WEB_NAME);
 	define('CORE_PATH',ROOT.DS.'app'.DS.'core');
 	define('MODULES', ROOT.DS.'app'.DS.'modules');
-	define('CSS_PATH', CORE_PATH.DS.'site_map'.DS.'css');
+	define('CSS_PATH', WEB_NAME.DS.'site_map'.DS.'css');
 
 
 ?>
