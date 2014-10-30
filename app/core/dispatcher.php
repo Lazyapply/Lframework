@@ -53,6 +53,7 @@
 				require_once($this->_controllerPath);
 				$this->_content = call_user_func('handler', $this->_method);
 			}
+			echo '<br><hr>';
 			print($this->_content);
 		}
 	}
