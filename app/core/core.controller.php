@@ -25,20 +25,22 @@
 
 		#eventos
 		switch ($event) {
-				case GO_INI:
+				case SET_INI:
 					$core->ini();
 					$data = array('params' => $core->params);
 					return retornar_vista(VIEW_INI, $data);
 					break;
 
-				case GO_ABOUT:
+				case SET_ABOUT:
 					$core->about();
 					$data = array('params' => $core->params);
 					return retornar_vista(VIEW_ABOUT, $data);
 					break;
 
 				default:
-					return retornar_vista($event);
+					$core->ini();
+					$data = array('params' => $core->params);
+					return retornar_vista(VIEW_INI, $data);
 					break;
 		}
 	}

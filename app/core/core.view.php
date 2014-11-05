@@ -73,6 +73,7 @@
 
 		$html = render_dinamic_data($html, $data['params']);
 
+		
 		return $html;
 	}
 

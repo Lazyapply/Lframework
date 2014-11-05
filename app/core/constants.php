@@ -14,8 +14,8 @@
 
 
 	#eventos
-	define('SET_INI', 'e.inicio');
-	define('SET_ABOUT', 'e.about');
+	define('SET_INI', 'inicio');
+	define('SET_ABOUT', 'about');
 
 
 	#acciones
