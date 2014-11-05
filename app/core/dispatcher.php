@@ -14,8 +14,6 @@
 	defecto el evento GO_INI, para que muestre la pagina de inicio
 **********************************************************/
 
-	// echo ROOT.DS.'app'.DS.CORE.'controller.php';
-	//require_once 'constants.php';
 	require_once CORE_PATH.DS.'request.php';
 
 	class dispatcher extends request{
@@ -31,7 +29,7 @@
 			$this->_method = parent::getMethod();
 			$this->_args   = parent::getArgs();
 			
-			//echo $this->_controller.'<br>';
+			
 
 			//si no es el nucleo
 			if($this->_controller != CORE){
@@ -49,11 +47,10 @@
 			}
 			else{
 				$this->_controllerPath = CORE_PATH.DS.$this->_controller.'.controller.php';
-				//echo $this->_controllerPath.'<br>';
 				require_once($this->_controllerPath);
 				$this->_content = call_user_func('handler', $this->_method);
 			}
-			//echo '<br><hr>';
+			
 			print($this->_content);
 		}
 	}
