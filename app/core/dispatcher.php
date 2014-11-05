@@ -3,9 +3,9 @@
 	Módulo:				CORE
 	Archivo:			dispatcher.php
 	Alias:				BootLoader
-	Fecha creacion:		06/10/2014
-	Ultima modif:		06/10/2014
-	Versión: 			0.1
+	Fecha creacion:		12/10/2014
+	Ultima modif:		05/11/2014
+	Versión: 			0.8
 	Autor: 				@dvel_
 
 	Descripción:

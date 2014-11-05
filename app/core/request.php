@@ -4,8 +4,8 @@
 	Archivo:			request.php
 	Alias:				----
 	Fecha creacion:		11/10/2014
-	Ultima modif:		28/10/2014
-	Versión: 			0.1
+	Ultima modif:		05/11/2014
+	Versión: 			0.6
 	Autor: 				@dvel_
 
 	Descripción:

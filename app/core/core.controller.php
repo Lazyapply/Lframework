@@ -1,11 +1,15 @@
 <?php 
 
 	/**********************************************************
-		Módulo:			core
-		Archivo:		controller.php
-		Fecha:			08/09/2014
-		Versión: 		0.1
-		Autor: 			@dvel_
+
+		Módulo:				CORE
+		Archivo:			core.controller.php
+		Alias:				----
+		Fecha creacion:		08/09/2014
+		Ultima modif:		05/10/2014
+		Versión: 			1.0
+		Autor: 				@dvel_
+
 
 		Descripción:
 		Este módulo es el encargado de arrancar el framework, 
