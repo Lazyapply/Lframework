@@ -26,7 +26,7 @@
 
 				$url = filter_input(INPUT_GET,'url', FILTER_SANITIZE_URL);
 				// explode divide la url, es como el strtok
-				echo '<b>URL: </b>'.$url.'<br><br>';
+				//echo '<b>URL: </b>'.$url.'<br><br>';
 
 				$url = explode('/', $url);
 				// elimina todos los slash de mas

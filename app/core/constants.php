@@ -1,28 +1,37 @@
 <?php 
 	
 	include 'config.php';
-	
+	//mejor usar define ya que nos permite usar
+	//varias constantes mezcladas
+
+	#separador
+	define('DS', DIRECTORY_SEPARATOR);	
+
 	#nombres
-	const WEB_NAME 		= 'Lframework';
-	const CORE 			= 'core';
+	define('WEB_NAME', 'Lframework');
+	define('CORE', 'core');
+
 
 
 	#eventos
-	const SET_INI 		= 'e.inicio';
-	const SET_ABOUT 	= 'e.about';
+	define('SET_INI', 'e.inicio');
+	define('SET_ABOUT', 'e.about');
+
 
 	#acciones
-	const GO_INI 		= 'inicio';
-	const GO_ABOUT 		= 'about';
+	define('GO_INI', CORE.DS.'inicio');
+	define('GO_ABOUT', CORE.DS.'about');
+
 
 	#vistas
-	const VIEW_INI		= 'inicio';
-	const VIEW_ABOUT	= 'about';
+	define('VIEW_INI', 'inicio');
+	define('VIEW_ABOUT', 'about');
+
 
 
 	
 	#rutas
-	define('DS', DIRECTORY_SEPARATOR);	
+	
 	define('ROOT', $_SERVER['DOCUMENT_ROOT'].DS.WEB_NAME);
 	define('CORE_PATH',ROOT.DS.'app'.DS.'core');
 	define('MODULES', ROOT.DS.'app'.DS.'modules');

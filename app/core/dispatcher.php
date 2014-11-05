@@ -31,7 +31,7 @@
 			$this->_method = parent::getMethod();
 			$this->_args   = parent::getArgs();
 			
-			echo $this->_controller.'<br>';
+			//echo $this->_controller.'<br>';
 
 			//si no es el nucleo
 			if($this->_controller != CORE){
@@ -49,11 +49,11 @@
 			}
 			else{
 				$this->_controllerPath = CORE_PATH.DS.$this->_controller.'.controller.php';
-				echo $this->_controllerPath.'<br>';
+				//echo $this->_controllerPath.'<br>';
 				require_once($this->_controllerPath);
 				$this->_content = call_user_func('handler', $this->_method);
 			}
-			echo '<br><hr>';
+			//echo '<br><hr>';
 			print($this->_content);
 		}
 	}
