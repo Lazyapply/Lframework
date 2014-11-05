@@ -61,6 +61,7 @@ body {
 }
 
 #pie {
+	width: 100%;
 	clear: both;
 	text-align: center;
 	padding: 20px;
