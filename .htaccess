@@ -4,10 +4,8 @@ DirectoryIndex site_map/index.php
 
 RewriteEngine  on
 RewriteBase /Lframework/
-#RewriteCond %(REQUEST_FILENAME) !=d
-#RewriteCond %(REQUEST_FILENAME) !=f
-#RewriteCond %(REQUEST_FILENAME) !=l
+
 RewriteCond %{REQUEST_FILENAME} !\.css
 
-#RewriteRule ^inicio$ site_map/index.php?url=/core/inicio [PT,QSA]
+
 RewriteRule ^(.+)$  site_map/index.php?url=$1 [PT,QSA]
