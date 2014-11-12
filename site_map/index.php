@@ -7,6 +7,31 @@
 
 	$bootstrap = new dispatcher();
 	$bootstrap->bootLoader();
+
+	require_once INCLUDES.DS.'db_abstract_model.php';
+
+	class u extends DBAbstractModel{
+
+	}
+
+	//$test = new u();
+	//$test->setQuery("CREATE TABLE test(t int(2) PRIMARY KEY)");
+	//$test->execute_single_query();
+	//echo 'all ok';
+	
+
+	/*$test->setQuery("SELECT * FROM test");
+	$test->get_results_from_query();
+	$r = $test->getRows();
+
+	foreach ($r as $key => $value) {
+		foreach ($r[$key] as $clave => $valor) {
+			echo 'clave: '.$clave.' valor: '.$valor.'<br/>';
+		}
+	}*/
+
+
+
 	// echo '<br>ROOT: '.ROOT;
 	// echo '<br>CORE_PATH: '.CORE_PATH;
 	// echo '<br>MODULES: '.MODULES;

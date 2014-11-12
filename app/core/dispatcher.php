@@ -37,8 +37,8 @@
 				
 				//si existe el modulo
 				if(file_exists($this->_controllerPath)){
-					require_once(_controllerPath);
-					$this->_content = call_user_function_array('handler', array($this->_method,
+					require_once($this->_controllerPath);
+					$this->_content = call_user_func_array('handler', array($this->_method,
 																		 $this->_args) );
 				}
 				else{
