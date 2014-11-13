@@ -37,25 +37,19 @@
 		}
 
 		public function add(){
-			echo 'add<br/>';
+
 			if(!empty($_POST)){
 				//cuando tenemos post, realizamos la consulta
 				$q = "INSERT INTO usuarios (nombre, apellido1, apellido2, usuario, pass, email, tipoUsuario)
-						VALUES (".$_POST['nombre'].", ".$_POST['apellido1'].", ".$_POST['apellido2'].",
-							".$_POST['usuario'].", ".$_POST['pass'].", ".$_POST['email'].", ".$_POST['tipoUsuario'].")";
+						VALUES ('".$_POST['nombre']."', '".$_POST['apellido1']."', '".$_POST['apellido2']."',
+							'".$_POST['usuario']."', '".$_POST['pass']."', '".$_POST['email']."', ".$_POST['tipoUsuario'].")";
 
-					/*INSERT INTO usuarios (nombre, apellido1, apellido2, usuario, pass, email, tipoUsuario)
-						VALUES ($_POST['nombre'], $_POST['apellido1'], $_POST['apellido2'],
-							$_POST['usuario'], $_POST['pass'], $_POST['email'], $_POST['tipoUsuario'])*/
-				
-				$this->query($q);
-				$this->execute_single_query();
 				echo $q;
+				//$this->setQuery($q);
+				//$this->execute_single_query();
 				unset($_POST);
 			}
-			else{
-				echo 'No hay datos en $_POST';
-			}
+			
 		}
 	}
 

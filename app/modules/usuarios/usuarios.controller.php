@@ -28,9 +28,17 @@
 		switch ($event) {
 
 				case ADD:
-					$_POST['usuario']='davidillo';
+					/*$_POST['nombre']='Diego';
+					$_POST['apellido1']='Velaochaga';
+					$_POST['apellido2']='Vilar';
+					$_POST['usuario']='Lazyapply';
+					$_POST['pass']='123456789';
+					$_POST['email']='lazyapply@gmail.com';
+					$_POST['tipoUsuario']=1;*/
+
 					$user->add();
-					$user->add();
+					if(empty($_POST))
+						echo '<br/>entrando...';
 					
 					break;
 
