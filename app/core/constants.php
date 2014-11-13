@@ -26,6 +26,7 @@
 	#vistas
 	define('VIEW_INI', 'inicio');
 	define('VIEW_ABOUT', 'about');
+	define('VIEW_LAYOUT', 'layout');
 
 
 

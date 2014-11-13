@@ -64,5 +64,13 @@
 			$this->params = array_merge($this->params, $this->paramsAux);
 		}
 
+		public function getLayout(){
+			$core = new Core();
+			$core->ini();
+			$data = array('params' => $core->params);
+			require_once 'core.view.php';
+			return retornar_vista(VIEW_LAYOUT, $data);
+		}
+
 	}
 ?>

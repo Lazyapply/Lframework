@@ -3,16 +3,17 @@
 	require_once CORE_PATH.DS.'request.php';
 	require_once CORE_PATH.DS.'dispatcher.php';
 
+	//$bootstrap = new dispatcher();
+	//$bootstrap->bootLoader();
+
+
+	require_once CORE_PATH.DS.'core.model.php';
+	$cor = new Core;
+	echo $cor->getLayout();
 	//echo 'Base url: '."http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'].'<br>';;
 
-	$bootstrap = new dispatcher();
-	$bootstrap->bootLoader();
 
-	require_once INCLUDES.DS.'db_abstract_model.php';
 
-	class u extends DBAbstractModel{
-
-	}
 
 	//$test = new u();
 	//$test->setQuery("CREATE TABLE test(t int(2) PRIMARY KEY)");

@@ -23,16 +23,20 @@
 
 	$GLOBALS['diccionario'] = array(
 			'titulo'		=> array(VIEW_INI		=> 'Bienvenido a L framework',
-									 VIEW_ABOUT		=> 'Bienvenido a L framework'
+									 VIEW_ABOUT		=> 'Bienvenido a L framework',
+									 VIEW_LAYOUT	=> 'Bienvenido a L framework'
 									),
 			'metaKey'		=> array(VIEW_INI		=> 'HTML5, CSS3, MVC, Modelo, Vista, Controlador, Patron, Framework',
-									 VIEW_ABOUT		=> 'HTML5, CSS3, MVC, Modelo, Vista, Controlador, Patron, Framework'
+									 VIEW_ABOUT		=> 'HTML5, CSS3, MVC, Modelo, Vista, Controlador, Patron, Framework',
+									 VIEW_LAYOUT	=> 'HTML5, CSS3, MVC, Modelo, Vista, Controlador, Patron, Framework'
 									),
 			'metaDesc'		=> array(VIEW_INI		=> 'Pequeño framework para MVC en php',
-									 VIEW_ABOUT		=> 'Pequeño framework para MVC en php'
+									 VIEW_ABOUT		=> 'Pequeño framework para MVC en php',
+									 VIEW_LAYOUT	=> 'Pequeño framework para MVC en php'
 									),
 			'subtitulo'		=> array(VIEW_INI		=> 'Framework para MVC en php',
-									 VIEW_ABOUT		=> 'Framework para MVC en php'
+									 VIEW_ABOUT		=> 'Framework para MVC en php',
+									 VIEW_LAYOUT	=> 'Framework para MVC en php'
 									),
 			'links_menu'	=> array('VIEW_INI'		=> GO_INI,
 									 'VIEW_ABOUT'	=> GO_ABOUT
