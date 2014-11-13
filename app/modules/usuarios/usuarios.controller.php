@@ -1,7 +1,56 @@
 <?php 
+	/**********************************************************
 
-function handler($event){
-	require_once '../app/core/constants.php';
+		Módulo:				CORE
+		Archivo:			core.controller.php
+		Alias:				----
+		Fecha creacion:		08/09/2014
+		Ultima modif:		05/10/2014
+		Versión: 			1.0
+		Autor: 				@dvel_
+
+
+		Descripción:
+		Este módulo es el encargado de arrancar el framework, 
+		llamará a la función ini, para mostrar el inicio de la
+		aplicación.
+	**********************************************************/
+
+	require_once 'constants.php';
+	require_once 'usuarios.model.php';
+	require_once 'usuarios.view.php';
+
+	function handler($event){
+
+		$user = set_obj();
+
+		#eventos
+		switch ($event) {
+
+				case ADD:
+					$_POST['usuario']='davidillo';
+					$user->add();
+					$user->add();
+					
+					break;
+
+				default:
+					/*$core->ini();
+					$data = array('params' => $core->params);
+					return retornar_vista(VIEW_INI, $data);*/
+					echo 'PATH NOT FOUND';
+					break;
+		}
+	}
+
+	function set_obj(){
+		$obj = new usuarios();
+		return $obj;
+	}
+
+
+
+	/*require_once '../app/core/constants.php';
 	require_once 'constants.php';
 
 	$template = 'add_user';
@@ -16,7 +65,7 @@ function handler($event){
 				include_once "$f";
 			$template = ob_get_clean();
 
-		echo $template;
-}
+		echo $template;*/
+
 
 ?>

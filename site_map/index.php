@@ -3,13 +3,16 @@
 	require_once CORE_PATH.DS.'request.php';
 	require_once CORE_PATH.DS.'dispatcher.php';
 
-	//$bootstrap = new dispatcher();
-	//$bootstrap->bootLoader();
+	$bootstrap = new dispatcher();
+	$bootstrap->bootLoader();
 
 
-	require_once CORE_PATH.DS.'core.model.php';
+	//$_POST['test2'] = 'test2';
+	//var_dump($_POST);
+
+	/*require_once CORE_PATH.DS.'core.model.php';
 	$cor = new Core;
-	echo $cor->getLayout();
+	echo $cor->getLayout();*/
 	//echo 'Base url: '."http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'].'<br>';;
 
 
