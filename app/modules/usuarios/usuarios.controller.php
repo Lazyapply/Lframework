@@ -35,8 +35,9 @@
 					else{
 						$user->add();
 						//mostramos el cuadro de dato añadido
-						echo 'Usuario a&ntilde;adido correctamente';
-						echo '<a href="list">Aceptar</a>';
+						$_POST['msg']='Usuario añadido correctamente.';
+						return usuarios_retornar_vista(VIEW_MSG);
+						unset($_POST);
 					}
 					break;
 
@@ -53,25 +54,5 @@
 		$obj = new usuarios();
 		return $obj;
 	}
-
-
-
-	/*require_once '../app/core/constants.php';
-	require_once 'constants.php';
-
-	$template = 'add_user';
-
-		$h =	CORE_PATH.DS.'templates'.DS.'sections'.DS.'section.header.html';
-		$t =	MODULES.DS.USUARIOS.DS.'templates'.DS.$template.'.html';
-		$f =	CORE_PATH.DS.'templates'.DS.'sections'.DS.'section.footer.html';
-
-			ob_start();
-				include_once "$h";
-				include_once "$t";
-				include_once "$f";
-			$template = ob_get_clean();
-
-		echo $template;*/
-
 
 ?>

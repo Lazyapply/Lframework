@@ -5,9 +5,9 @@
 		Módulo:				USUARIOS
 		Archivo:			core.usuarios.php
 		Alias:				----
-		Fecha creacion:		08/09/2014
-		Ultima modif:		05/11/2014
-		Versión: 			1.0
+		Fecha creacion:		14/11/2014
+		Ultima modif:		14/11/2014
+		Versión: 			0.1
 		Autor: 				@dvel_
 
 
@@ -22,7 +22,8 @@
 	require_once  	'constants.php';
 
 	$GLOBALS['diccionario'] = array(
-			'subtitulo'		=> array(VIEW_ADD	=> 'Añadir nuevo usuario'
+			'subtitulo'		=> array(VIEW_ADD	=> 'Añadir nuevo usuario',
+									 VIEW_MSG	=> 'Añadir nuevo usuario'
 									),
 			'links_menu'	=> array('VIEW_ADD'	=> GO_ADD
 									)
@@ -70,7 +71,7 @@
 		$html = usuarios_get_template($vista);
 		$html = str_replace('{subtitulo}', $diccionario['subtitulo'][$vista], $html);
 		$html = usuarios_render_dinamic_data($html, $diccionario['links_menu']);
-		
+
 		if(!empty($data))
 			$html = usuarios_render_dinamic_data($html, $data['params']);
 
