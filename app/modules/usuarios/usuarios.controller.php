@@ -33,11 +33,16 @@
 						return usuarios_retornar_vista(VIEW_ADD);
 					}
 					else{
-						$user->add();
-						//mostramos el cuadro de dato añadido
-						$_POST['msg']='Usuario añadido correctamente.';
-						return usuarios_retornar_vista(VIEW_MSG);
-						unset($_POST);
+						if($_POST['pass'] == $_POST['r_pass']){
+							$user->add();						
+							//mostramos el cuadro de dato añadido
+							$_POST['msg']='Usuario añadido correctamente.';
+							return usuarios_retornar_vista(VIEW_MSG);
+							unset($_POST);
+						}
+						else{
+							echo 'Las contraseñas no coinciden';
+						}
 					}
 					break;
 
