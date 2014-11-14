@@ -44,9 +44,9 @@
 						VALUES ('".$_POST['nombre']."', '".$_POST['apellido1']."', '".$_POST['apellido2']."',
 							'".$_POST['usuario']."', '".$_POST['pass']."', '".$_POST['email']."', ".$_POST['tipoUsuario'].")";
 
-				echo $q;
-				//$this->setQuery($q);
-				//$this->execute_single_query();
+				//echo $q;
+				$this->setQuery($q);
+				$this->execute_single_query();
 				unset($_POST);
 			}
 			

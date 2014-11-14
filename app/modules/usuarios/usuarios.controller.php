@@ -1,12 +1,12 @@
 <?php 
 	/**********************************************************
 
-		Módulo:				CORE
-		Archivo:			core.controller.php
+		Módulo:				USUARIOS
+		Archivo:			core.usuarios.php
 		Alias:				----
-		Fecha creacion:		08/09/2014
-		Ultima modif:		05/10/2014
-		Versión: 			1.0
+		Fecha creacion:		13/11/2014
+		Ultima modif:		14/11/2014
+		Versión: 			0.1
 		Autor: 				@dvel_
 
 
@@ -27,19 +27,17 @@
 		#eventos
 		switch ($event) {
 
-				case ADD:
-					/*$_POST['nombre']='Diego';
-					$_POST['apellido1']='Velaochaga';
-					$_POST['apellido2']='Vilar';
-					$_POST['usuario']='Lazyapply';
-					$_POST['pass']='123456789';
-					$_POST['email']='lazyapply@gmail.com';
-					$_POST['tipoUsuario']=1;*/
-
-					$user->add();
-					if(empty($_POST))
-						echo '<br/>entrando...';
-					
+				case SET_ADD:
+					if(empty($_POST)){
+						//llamamos a la vista
+						return usuarios_retornar_vista(VIEW_ADD);
+					}
+					else{
+						$user->add();
+						//mostramos el cuadro de dato añadido
+						echo 'Usuario a&ntilde;adido correctamente';
+						echo '<a href="list">Aceptar</a>';
+					}
 					break;
 
 				default:

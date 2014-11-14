@@ -1,11 +1,37 @@
 
 <section id="area_principal">
 <article>
-	
+	<div>
+		{subtitulo}
+	</div>
+	<div>
+		<nav id="menu">
+			<ul>
+				<li><a href="{VIEW_ADD}">Añadir usuario</a></li>
+			</ul>
+		</nav>
+	</div>
+	<br/><br/><br/>
 	<form action="usuarios/add" method="POST">
 		<fieldset>
-		<label for=""></label>
-			<input type="text">
+			<label for="nombre">Nombre</label>
+				<input type="text" id="nombre" name="nombre"><br/>
+			<label for="apellido1">Primer apellido</label>
+				<input type="text" id="apellido1" name="apellido1"><br/>
+			<label for="apellido2">Segundo apellido</label>
+				<input type="text" id="apellido2" name="apellido2"><br/>
+			<label for="usuario">Nombre de usuario</label>
+				<input type="text" id="usuario" name="usuario"><br/>
+			<label for="pass">Contraseña</label>
+				<input type="text" id="pass" name="pass"><br/>
+			<label for="r_pass">Repite la contraseña</label>
+				<input type="text" id="r_pass" name="r_pass"><br/>
+			<label for="email">Email</label>
+				<input type="text" id="email" name="email"><br/>
+			<label for="tipoUsuario">Tipo de usuario</label>
+				<input type="text" id="tipoUsuario" name="tipoUsuario"><br/>
+			<input type="reset" value="Borrar datos">
+			<input type="submit" value="A&ntilde;adir usuario" id="add" name="add">
 		</fieldset>
 	</form>
 
