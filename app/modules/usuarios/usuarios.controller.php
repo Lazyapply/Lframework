@@ -34,17 +34,56 @@
 					}
 					else{
 						if($_POST['pass'] == $_POST['r_pass']){
-							$user->add();						
-							//mostramos el cuadro de dato añadido
-							$_POST['msg']='Usuario añadido correctamente.';
-							return usuarios_retornar_vista(VIEW_MSG);
-							unset($_POST);
+							if(!$user->user_exists($_POST['usuario'])){
+								$user->add();						
+								//mostramos el cuadro de dato añadido
+								$_POST['msg']='Usuario añadido correctamente.';
+								return usuarios_retornar_vista(VIEW_MSG);
+								unset($_POST);
+							}
+							else{
+								$_POST['msg']='El usuario ya está registrado. Elige otro nombre de usuario';
+								return usuarios_retornar_vista(VIEW_ERR);
+								unset($_POST);
+							}
 						}
 						else{
-							echo 'Las contraseñas no coinciden';
+							$_POST['msg']='Las contraseñas no coinciden';
+							return usuarios_retornar_vista(VIEW_ERR);
+							unset($_POST);
 						}
 					}
 					break;
+
+				case SET_SIGNGUP:
+
+					if(empty($_POST)){
+						//llamamos a la vista
+						return usuarios_retornar_vista(VIEW_SIGNUP);
+					}
+					else{
+						if($_POST['pass'] == $_POST['r_pass']){
+							if(!$user->user_exists($_POST['usuario'])){
+								$user->signup();						
+								//mostramos el cuadro de dato añadido
+								$_POST['msg']='Te has registrado correctamente. En breve recibirás un email con mas información.';
+								return usuarios_retornar_vista(VIEW_MSG);
+								unset($_POST);
+							}
+							else{
+								$_POST['msg']='El usuario ya está registrado. Elige otro nombre de usuario';
+								return usuarios_retornar_vista(VIEW_ERR);
+								unset($_POST);
+							}
+						}
+						else{
+							$_POST['msg']='Las contraseñas no coinciden';
+							return usuarios_retornar_vista(VIEW_ERR);
+							unset($_POST);
+						}
+					}
+
+				break;
 
 				default:
 					/*$core->ini();

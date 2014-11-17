@@ -6,6 +6,7 @@ RewriteEngine  on
 RewriteBase /Lframework/
 
 RewriteCond %{REQUEST_FILENAME} !\.css
+RewriteCond %{REQUEST_FILENAME} !\.js
 
 
 RewriteRule ^(.+)$  site_map/index.php?url=$1 [PT,QSA]

@@ -18,6 +18,7 @@
 		private function _open_connection(){
 			$this->_connection = new mysqli($this->db_host, $this->db_user,
 			                               $this->db_pass, $this->db_name);
+			mysqli_set_charset($this->_connection, 'utf8');
 		}
 
 		private function _close_connection(){

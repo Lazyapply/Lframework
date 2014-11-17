@@ -9,7 +9,7 @@
 	define('SET_DELETE', 	'delete');
 	define('SET_LIST', 		'list');
 	define('SET_LOGIN', 	'login');
-	define('SET_SIGNGUP', 	'singup');
+	define('SET_SIGNGUP', 	'signup');
 	define('SET_FORGOT', 	'forgot');
 
 
@@ -34,5 +34,6 @@
 	define('VIEW_FORGOT', 	'forgot');
 
 	define('VIEW_MSG', 'msg');
+	define('VIEW_ERR', 'error');
 
 ?>

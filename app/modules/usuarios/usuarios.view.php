@@ -22,10 +22,15 @@
 	require_once  	'constants.php';
 
 	$GLOBALS['diccionario'] = array(
-			'subtitulo'		=> array(VIEW_ADD	=> 'Añadir nuevo usuario',
-									 VIEW_MSG	=> 'Añadir nuevo usuario'
+			'subtitulo'		=> array(VIEW_ADD		=> 'Añadir nuevo usuario',
+									 VIEW_MSG		=> 'Añadir nuevo usuario',
+									 VIEW_ERR		=> 'Añadir nuevo usuario',
+									 VIEW_SIGNUP	=> 'Registro nuevo usuario',
+									 VIEW_LOGIN		=> 'Autentificación'
 									),
-			'links_menu'	=> array('VIEW_ADD'	=> GO_ADD
+			'links_menu'	=> array('VIEW_ADD'		=> GO_ADD,
+									 'VIEW_SIGNUP'	=> GO_SIGNUP,
+									 'VIEW_LOGIN'	=> GO_LOGIN
 									)
 						);
 

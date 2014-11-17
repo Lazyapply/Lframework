@@ -4,15 +4,9 @@
 	<div>
 		{subtitulo}
 	</div>
-	<div>
-		<nav id="menu">
-			<ul>
-				<li><a href="{VIEW_ADD}">Añadir usuario</a></li>
-			</ul>
-		</nav>
-	</div>
+	
 	<br/><br/><br/>
-	<form action="usuarios/add" method="POST">
+	<form action="usuarios/signup" method="POST">
 		<fieldset>
 			<label for="nombre">Nombre</label>
 				<input type="text" id="nombre" name="nombre"><br/>
@@ -28,14 +22,8 @@
 				<input type="text" id="r_pass" name="r_pass"><br/>
 			<label for="email">Email</label>
 				<input type="text" id="email" name="email"><br/>
-			<label for="tipoUsuario">Tipo de usuario</label>
-				<select type="text" id="tipoUsuario" name="tipoUsuario">
-					<option value="1">Admin</option>
-					<option value="2">Usuario</option>
-				</select>
-				<br/>
 			<input type="reset" value="Borrar datos">
-			<input type="submit" value="A&ntilde;adir usuario" id="add" name="add">
+			<input type="submit" value="Completar registro" id="add" name="add">
 		</fieldset>
 	</form>
 
