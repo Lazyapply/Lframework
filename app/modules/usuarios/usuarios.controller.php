@@ -28,32 +28,42 @@
 		switch ($event) {
 
 				case SET_ADD:
-					if(empty($_POST)){
-						//llamamos a la vista
-						return usuarios_retornar_vista(VIEW_ADD);
-					}
-					else{
-						if($_POST['pass'] == $_POST['r_pass']){
-							if(!$user->user_exists($_POST['usuario'])){
-								$user->add();						
-								//mostramos el cuadro de dato añadido
-								$_POST['msg']='Usuario añadido correctamente.';
-								return usuarios_retornar_vista(VIEW_MSG);
-								unset($_POST);
+				
+					@session_start();
+					//si tiene permisos de admin
+					if(@$_SESSION['userPerm'] == 1){
+						if(empty($_POST)){
+							//llamamos a la vista
+							return usuarios_retornar_vista(VIEW_ADD);
+						}
+						else{
+							if($_POST['pass'] == $_POST['r_pass']){
+								if(!$user->user_exists($_POST['usuario'])){
+									$user->add();						
+									//mostramos el cuadro de dato añadido
+									$_POST['msg']='Usuario añadido correctamente.';
+									return usuarios_retornar_vista(VIEW_MSG);
+									unset($_POST);
+								}
+								else{
+									$_POST['msg']='El usuario ya está registrado. Elige otro nombre de usuario';
+									return usuarios_retornar_vista(VIEW_ERR);
+									unset($_POST);
+								}
 							}
 							else{
-								$_POST['msg']='El usuario ya está registrado. Elige otro nombre de usuario';
+								$_POST['msg']='Las contraseñas no coinciden';
 								return usuarios_retornar_vista(VIEW_ERR);
 								unset($_POST);
 							}
 						}
-						else{
-							$_POST['msg']='Las contraseñas no coinciden';
-							return usuarios_retornar_vista(VIEW_ERR);
-							unset($_POST);
-						}
 					}
-					break;
+					else{
+						$_POST['msg']='No tienes permisos para acceder a esta sección de la aplicación.';
+						return usuarios_retornar_vista(VIEW_ERR);
+						unset($_POST);
+					}
+				break;
 
 				case SET_SIGNGUP:
 
