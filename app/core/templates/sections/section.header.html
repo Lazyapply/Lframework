@@ -16,11 +16,19 @@
 	<div id="caja_principal">
 		<header id="cabecera">
 			<h1>{titulo}</h1>
+			<div>
+				<?php
+					@session_start();
+						echo @$_SESSION['userName'];
+				?>
+			</div>
 		</header>
 		<nav id="menu">
 			<ul>
 				<li><a href="{VIEW_INI}">Inicio</a></li>
 				<li><a href="{VIEW_ABOUT}">About</a></li>
 				<li><a href="usuarios/signup">Registro</a></li>
+				<li><a href="usuarios/login">Login</a></li>
+				<li><a href="usuarios/logout">Logout</a></li>
 			</ul>
 		</nav>

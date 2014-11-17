@@ -19,7 +19,7 @@
 					apellido1		varchar(20),
 					apellido2		varchar(20),
 					usuario			varchar(15),
-					pass 			varchar(30),
+					pass 			varchar(100),
 					email			varchar(30),
 					tipoUsuario 	int(3),
 

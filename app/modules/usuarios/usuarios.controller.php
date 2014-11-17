@@ -85,6 +85,33 @@
 
 				break;
 
+				case SET_LOGIN:
+					if(empty($_POST)){
+						return usuarios_retornar_vista(VIEW_LOGIN);
+					}
+					else{
+						if($user->login()){
+							$_POST['msg']='Te has logueado satisfactoriamente';
+							return usuarios_retornar_vista(VIEW_MSG);
+							unset($_POST);
+						}
+						else{
+							$_POST['msg']='El usuario y/o la contraseña son incorrectos';
+							return usuarios_retornar_vista(VIEW_ERR);
+							unset($_POST);
+						}
+					}
+
+				break;
+
+
+				case SET_LOGOUT:
+					$user->logout();
+					$_POST['msg']='Has cerrado sesión correctamente';
+					return usuarios_retornar_vista(VIEW_MSG);
+					unset($_POST);
+				break;
+
 				default:
 					/*$core->ini();
 					$data = array('params' => $core->params);

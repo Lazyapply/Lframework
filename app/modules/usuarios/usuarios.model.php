@@ -67,11 +67,37 @@
 		}
 
 		public function login(){
-			$q = "SELECT usuario, pass WHERE usuario='".$_POST['usuario']."'";
-			echo $q;
+			$q = "SELECT usuario, pass, tipoUsuario, idUsuario FROM usuarios WHERE usuario='".$_POST['usuario']."'";
+
+			$this->setQuery($q);
+			$this->get_results_from_query();
+
+			$userId 	= @$this->rows[0]['idUsuario'];
+			$userName 	= @$this->rows[0]['usuario'];
+			$userPass 	= @$this->rows[0]['pass'];
+			$userPerm 	= intval(@$this->rows[0]['tipoUsuario']);
+
+			if(md5($_POST['pass']) == $userPass){
+				session_start();
+				$_SESSION['userName'] 	= $userName;
+				$_SESSION['userId'] 	= $userId;
+				$_SESSION['userPerm'] 	= $userPerm;
+
+				unset($_POST);
+				return true;
+			}
+			else{
+
+				unset($_POST);
+				return false;
+			}	
 		}
 
-
+		public function logout(){
+			session_start();
+			session_unset();
+			session_destroy();
+		}
 
 
 		function user_exists($user_name){
