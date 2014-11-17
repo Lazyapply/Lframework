@@ -26,11 +26,13 @@
 									 VIEW_MSG		=> 'Añadir nuevo usuario',
 									 VIEW_ERR		=> 'Añadir nuevo usuario',
 									 VIEW_SIGNUP	=> 'Registro nuevo usuario',
-									 VIEW_LOGIN		=> 'Autentificación'
+									 VIEW_LOGIN		=> 'Autentificación',
+									 VIEW_LIST		=> 'Lista de usuarios'
 									),
 			'links_menu'	=> array('VIEW_ADD'		=> GO_ADD,
 									 'VIEW_SIGNUP'	=> GO_SIGNUP,
-									 'VIEW_LOGIN'	=> GO_LOGIN
+									 'VIEW_LOGIN'	=> GO_LOGIN,
+									 'VIEW_LIST'	=> GO_LIST
 									)
 						);
 
@@ -78,7 +80,7 @@
 		$html = usuarios_render_dinamic_data($html, $diccionario['links_menu']);
 
 		if(!empty($data))
-			$html = usuarios_render_dinamic_data($html, $data['params']);
+			$html = usuarios_render_dinamic_data($html, $data);
 
 		
 		return $html;

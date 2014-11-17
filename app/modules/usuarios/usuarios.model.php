@@ -21,14 +21,8 @@
 
 	class usuarios extends DBAbstractModel{
 
-		protected $idU;
-		protected $nombre;
-		protected $apellido1;
-		protected $apellido2;
-		protected $usuario;
-		protected $pass;
-		protected $email;
-		protected $tipoU;
+		public $params;
+
 
 
 
@@ -57,7 +51,7 @@
 				//cuando tenemos post, realizamos la consulta
 				$q = "INSERT INTO usuarios (nombre, apellido1, apellido2, usuario, pass, email, tipoUsuario)
 						VALUES ('".$_POST['nombre']."', '".$_POST['apellido1']."', '".$_POST['apellido2']."',
-							'".$_POST['usuario']."', '".md5($_POST['pass'])."', '".$_POST['email']."', 2)";
+							'".$_POST['usuario']."', '".md5($_POST['pass'])."', '".$_POST['email']."', 3)";
 
 				//echo $q;
 				$this->setQuery($q);
@@ -98,6 +92,30 @@
 			session_unset();
 			session_destroy();
 		}
+
+
+		public function l(){
+			$q = "SELECT * FROM usuarios";
+			$this->setQuery($q);
+			$this->get_results_from_query();
+			$r = $this->getRows();
+
+			foreach ($r as $key => $value) {
+				if(@$clave != 'pass')
+					$this->params .= '<tr>';
+
+				foreach ($r[$key] as $clave => $valor){
+
+					if($clave != 'pass')
+						$this->params .= '<td>'.$valor.'</td>';	
+				}
+
+				if(@$clave != 'pass')
+					$this->params .= '</tr>';
+			}
+		}
+
+
 
 
 		function user_exists($user_name){

@@ -7,7 +7,7 @@
 	define('SET_ADD', 		'add');
 	define('SET_EDIT', 		'edit');
 	define('SET_DELETE', 	'delete');
-	define('SET_LIST', 		'list');
+	define('SET_LIST', 		'l');
 	define('SET_LOGIN', 	'login');
 	define('SET_SIGNGUP', 	'signup');
 	define('SET_FORGOT', 	'forgot');
@@ -26,11 +26,12 @@
 
 
 
+
 	#views
 	define('VIEW_ADD', 		'add_user');
 	define('VIEW_EDIT', 	'mod_user');
 	define('VIEW_DELETE', 	'delete_user');
-	define('VIEW_LIST', 	'list_user');
+	define('VIEW_LIST', 	'list');
 	define('VIEW_LOGIN', 	'login');
 	define('VIEW_SIGNUP', 	'signup');
 	define('VIEW_FORGOT', 	'forgot');

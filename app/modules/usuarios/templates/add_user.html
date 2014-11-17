@@ -8,6 +8,7 @@
 		<nav id="menu">
 			<ul>
 				<li><a href="{VIEW_ADD}">Añadir usuario</a></li>
+				<li><a href="{VIEW_LIST}">Mostrar usuarios</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -29,9 +30,11 @@
 			<label for="email">Email</label>
 				<input type="text" id="email" name="email"><br/>
 			<label for="tipoUsuario">Tipo de usuario</label>
+			<!--TODO: cambiar tipos de usuarios de forma dinamica -->
 				<select type="text" id="tipoUsuario" name="tipoUsuario">
 					<option value="1">Admin</option>
-					<option value="2">Usuario</option>
+					<option value="2">Documentalista</option>
+					<option value="3">Usuario</option>
 				</select>
 				<br/>
 			<input type="reset" value="Borrar datos">

@@ -28,7 +28,7 @@
 		switch ($event) {
 
 				case SET_ADD:
-				
+
 					@session_start();
 					//si tiene permisos de admin
 					if(@$_SESSION['userPerm'] == 1){
@@ -121,6 +121,27 @@
 					return usuarios_retornar_vista(VIEW_MSG);
 					unset($_POST);
 				break;
+
+				case SET_LIST:
+					$user->l();
+					$data = array('data' => $user->params);
+					//var_dump($data);
+					return usuarios_retornar_vista(VIEW_LIST, $data);
+					/*foreach ($r as $key => $value) {
+						foreach ($r[$key] as $clave => $valor) {
+							if($clave != 'pass')
+								$to .= '.$valor;
+						}
+						
+					}*/
+					//return usuarios_retornar_vista(VIEW_LIST);
+					//echo '<br/><hr/>';
+					//echo '<table border="1">';
+					//echo $user->params;
+					//echo '</table>';
+
+				break;
+
 
 				default:
 					/*$core->ini();
