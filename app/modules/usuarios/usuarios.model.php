@@ -117,17 +117,28 @@
 
 
 		public function edit($uId){
+				$q = "SELECT nombre, apellido1, apellido2, usuario, email, tipoUsuario FROM usuarios
+					  WHERE idUsuario='".$uId."'";
 
-			$q = "SELECT nombre, apellido1, apellido2, usuario, email, tipoUsuario FROM usuarios
-				  WHERE idUsuario='".$uId."'";
-
-			$this->setQuery($q);
-			$this->get_results_from_query();
-			$this->params = $this->getRows();
+				$this->setQuery($q);
+				$this->get_results_from_query();
+				$this->params = $this->getRows();
+				@session_start();
+				$_SESSION['userPermAux'] = $this->params[0]['tipoUsuario'];
 			
 		}
 
+		public function update($uId){
+			$q = "UPDATE usuarios SET nombre='".@$_POST['nombre'].
+												"', apellido1='".@$_POST['apellido1'].
+												"', apellido2='".@$_POST['apellido2'].
+												"', usuario='".@$_POST['usuario'].
+												"', tipoUsuario='".@$_POST['tipoUsuario']
+					."' WHERE idUsuario='".$uId."'";
 
+				echo $q;
+				unset($_POST);
+		}
 
 		function user_exists($user_name){
 			$q = "SELECT usuario FROM usuarios WHERE usuario='".$user_name."'";
