@@ -123,30 +123,20 @@
 				break;
 
 				case SET_LIST:
-					$user->l();
-					$data = array('data' => $user->params);
-					//var_dump($data);
-					return usuarios_retornar_vista(VIEW_LIST, $data);
-					/*foreach ($r as $key => $value) {
-						foreach ($r[$key] as $clave => $valor) {
-							if($clave != 'pass')
-								$to .= '.$valor;
-						}
-						
-					}*/
-					//return usuarios_retornar_vista(VIEW_LIST);
-					//echo '<br/><hr/>';
-					//echo '<table border="1">';
-					//echo $user->params;
-					//echo '</table>';
-
+					if(@$_SESSION['userPerm'] == 1){
+						$user->l();
+						$data = array('data' => $user->params);
+						return usuarios_retornar_vista(VIEW_LIST, $data);
+					}
+					else{
+						$_POST['msg']='No tienes permisos para acceder a esta sección de la aplicación.';
+						return usuarios_retornar_vista(VIEW_ERR);
+						unset($_POST);
+					}
 				break;
 
 
 				default:
-					/*$core->ini();
-					$data = array('params' => $core->params);
-					return retornar_vista(VIEW_INI, $data);*/
 					echo 'PATH NOT FOUND';
 					break;
 		}
