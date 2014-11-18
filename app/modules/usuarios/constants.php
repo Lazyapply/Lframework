@@ -12,6 +12,7 @@
 	define('SET_SIGNGUP', 	'signup');
 	define('SET_FORGOT', 	'forgot');
 	define('SET_LOGOUT', 	'logout');
+	define('SET_CP', 		'controlPanel');
 
 
 	#actions
@@ -36,6 +37,7 @@
 	define('VIEW_SIGNUP', 	'signup');
 	define('VIEW_FORGOT', 	'forgot');
 	define('VIEW_LOGOUT', 	'logout');
+	define('VIEW_CP', 		'cp');
 
 
 

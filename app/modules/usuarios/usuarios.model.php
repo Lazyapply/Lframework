@@ -116,6 +116,17 @@
 		}
 
 
+		public function edit($uId){
+
+			$q = "SELECT nombre, apellido1, apellido2, usuario, email, tipoUsuario FROM usuarios
+				  WHERE idUsuario='".$uId."'";
+
+			$this->setQuery($q);
+			$this->get_results_from_query();
+			$this->params = $this->getRows();
+			
+		}
+
 
 
 		function user_exists($user_name){

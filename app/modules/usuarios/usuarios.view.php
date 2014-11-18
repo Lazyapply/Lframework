@@ -27,12 +27,15 @@
 									 VIEW_ERR		=> 'Añadir nuevo usuario',
 									 VIEW_SIGNUP	=> 'Registro nuevo usuario',
 									 VIEW_LOGIN		=> 'Autentificación',
-									 VIEW_LIST		=> 'Lista de usuarios'
+									 VIEW_LIST		=> 'Lista de usuarios',
+									 VIEW_EDIT		=> 'Modificar usuario',
+									 VIEW_CP		=> 'Panel de control de Usuarios'
 									),
 			'links_menu'	=> array('VIEW_ADD'		=> GO_ADD,
 									 'VIEW_SIGNUP'	=> GO_SIGNUP,
 									 'VIEW_LOGIN'	=> GO_LOGIN,
-									 'VIEW_LIST'	=> GO_LIST
+									 'VIEW_LIST'	=> GO_LIST,
+									 'VIEW_EDIT'	=> GO_EDIT
 									)
 						);
 

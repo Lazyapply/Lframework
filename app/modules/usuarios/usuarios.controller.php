@@ -123,6 +123,7 @@
 				break;
 
 				case SET_LIST:
+					@session_start();
 					if(@$_SESSION['userPerm'] == 1){
 						$user->l();
 						$data = array('data' => $user->params);
@@ -135,9 +136,29 @@
 					}
 				break;
 
+				case SET_EDIT:
+					@session_start();
+					if(empty($_POST)){
+						if(@$_SESSION['userPerm'] == 1){
+							$user->edit();
+							return usuarios_retornar_vista(VIEW_EDIT,$user->params[0]);
+						}
+						else if(isset($_SESSION['userName'])){
+							$user->edit($_SESSION['userId']);
+							return usuarios_retornar_vista(VIEW_EDIT,$user->params[0]);
+						}
+						else{
+							$_POST['msg']='No tienes permisos para acceder a esta sección de la aplicación.';
+							return usuarios_retornar_vista(VIEW_ERR);
+							unset($_POST);
+						}
+					}
+				break;
 
 				default:
-					echo 'PATH NOT FOUND';
+					$_POST['msg']='La ruta no existe.';
+						return usuarios_retornar_vista(VIEW_ERR);
+						unset($_POST);
 					break;
 		}
 	}

@@ -19,7 +19,7 @@
 			<div>
 				<?php
 					@session_start();
-						echo @$_SESSION['userName'];
+						echo '<a href="usuarios/edit">'.@$_SESSION['userName'].'</a>';
 				?>
 			</div>
 		</header>
