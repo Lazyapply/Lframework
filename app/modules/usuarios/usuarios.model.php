@@ -136,7 +136,8 @@
 												"', tipoUsuario='".@$_POST['tipoUsuario']
 					."' WHERE idUsuario='".$uId."'";
 
-				echo $q;
+				$this->setQuery($q);
+				$this->execute_single_query();
 				unset($_POST);
 		}
 
