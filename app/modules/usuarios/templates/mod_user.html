@@ -29,26 +29,23 @@
 							echo '<option value="1">Admin</option>';
 						}
 
-
 						if(@$_SESSION['userPermAux'] == 2){
-							echo '<option value="2" selected="selected>Documentalista</option>';
+							echo '<option value="2" selected="selected">Usuario</option>';
 						}
 						else{
-							echo '<option value="2">Documentalista</option>';
+							echo '<option value="2">Usuario</option>';
 						}
 
 						if(@$_SESSION['userPermAux'] == 3){
-							echo '<option value="2" selected="selected>Documentalista</option>';
+							echo '<option value="3" selected="selected">Documentalista</option>';
 						}
 						else{
-							echo '<option value="3">Usuario</option>';
+							echo '<option value="3">Documentalista</option>';
 						}
 					?>
-					
+		
 				</select>
 			<input type="submit" value="Modificar" id="add" name="add">
 		</fieldset>
 	</form>
-	<?php @session_start(); echo @$_SESSION['userPermAux']; ?>
-
 </article>
