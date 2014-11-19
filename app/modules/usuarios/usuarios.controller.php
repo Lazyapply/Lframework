@@ -140,10 +140,12 @@
 
 					@session_start();
 					$req = new Request();
-					$x = $req->getArgs();
-
 					if(empty($_POST)){
+						
 						if(@$_SESSION['userPerm'] == 1){
+								$x = $req->getArgs();
+								$_SESSION['aux'] = $x[0];
+
 							if(count($x) == 0)
 								$user->edit($_SESSION['userId']);
 							else
@@ -162,17 +164,20 @@
 						}
 					}
 					else{
-						if(@$_SESSION['userPerm'] == 1){
-							
-							if(count($x) == 0)
-								$user->update($_SESSION['userId']);
+						if($_SESSION['userPerm'] == 1){
+
+							if(@count($x) == 0)
+								$user->update($_SESSION['aux']);
 							else
-								$user->update($x[0]);
+								$user->update($_SESSION['userId']);		
 
 						}
 						else{
 							$user->update($_SESSION['userId']);
 						}
+						unset($_POST);
+						$_POST['msg']='El usuario se ha modificado correctamente';
+						return usuarios_retornar_vista(VIEW_MSG);
 						unset($_POST);
 					}
 				break;
