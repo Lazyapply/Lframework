@@ -18,6 +18,7 @@
 				<input type="text" id="usuario" name="usuario" value="{usuario}">
 			<label for="email">Email</label>
 				<input type="text" id="email" name="email" value="{email}"><br/>
+			<?php @session_start(); if($_SESSION['userPerm'] == 1): ?>
 			<select type="text" id="tipoUsuario" name="tipoUsuario">
 					<?php 
 						@session_start();
@@ -46,6 +47,7 @@
 					?>
 		
 				</select>
+			<?php endif ?>
 			<input type="submit" value="Modificar" id="add" name="add">
 		</fieldset>
 	</form>
