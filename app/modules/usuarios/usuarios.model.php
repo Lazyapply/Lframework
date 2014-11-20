@@ -132,12 +132,14 @@
 			$q = "UPDATE usuarios SET nombre='".@$_POST['nombre'].
 												"', apellido1='".@$_POST['apellido1'].
 												"', apellido2='".@$_POST['apellido2'].
-												"', usuario='".@$_POST['usuario'].
-												"', tipoUsuario='".@$_POST['tipoUsuario']
-					."' WHERE idUsuario='".$uId."'";
+												"', usuario='".@$_POST['usuario']."'";
+												if(@$_POST['tipoUsuario'])
+													$q .= ", tipoUsuario=".@$_POST['tipoUsuario'];
 
-				//echo $q;
-				$this->setQuery($q);
+					$q .= " WHERE idUsuario='".$uId."'";
+
+				echo $q;
+				//$this->setQuery($q);
 				$this->execute_single_query();
 				unset($_POST);
 		}
