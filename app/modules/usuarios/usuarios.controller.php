@@ -176,9 +176,9 @@
 							$user->update($_SESSION['userId']);
 						}
 						unset($_POST);
-						//$_POST['msg']='El usuario se ha modificado correctamente';
-						//return usuarios_retornar_vista(VIEW_MSG);
-						//unset($_POST);
+						$_POST['msg']='El usuario se ha modificado correctamente';
+						return usuarios_retornar_vista(VIEW_MSG);
+						unset($_POST);
 					}
 				break;
 
