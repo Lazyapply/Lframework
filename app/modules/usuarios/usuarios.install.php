@@ -12,15 +12,17 @@
 					";
 
 
-	$q['usuarios'] ="CREATE TABLE usuarios
+$q['usuarios'] ="CREATE TABLE usuarios
 				(
 					idUsuario		int(3) AUTO_INCREMENT,
-					nombre			varchar(20),
-					apellido1		varchar(20),
-					apellido2		varchar(20),
-					usuario			varchar(15),
+					nombre			varchar(100),
+					apellido1		varchar(100),
+					apellido2		varchar(100),
+					usuario			varchar(100),
 					pass 			varchar(100),
-					email			varchar(30),
+					email			varchar(100),
+					bloqueado		tinyint(1) NOT NULL DEFAULT 0,
+					activo			tinyint(1) NOT NULL DEFAULT 0,
 					tipoUsuario 	int(3),
 
 					PRIMARY KEY (idUsuario),

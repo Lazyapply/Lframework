@@ -7,6 +7,7 @@
 	define('SET_ADD', 		'add');
 	define('SET_EDIT', 		'edit');
 	define('SET_DELETE', 	'delete');
+	define('SET_BLOCK', 	'block');
 	define('SET_LIST', 		'l');
 	define('SET_LOGIN', 	'login');
 	define('SET_SIGNGUP', 	'signup');
@@ -24,6 +25,7 @@
 	define('GO_SIGNUP', 	USUARIOS.DS.SET_SIGNGUP);
 	define('GO_FORGOT', 	USUARIOS.DS.SET_FORGOT);
 	define('GO_LOGOUT', 	USUARIOS.DS.SET_LOGOUT);
+	define('GO_BLOCK', 		USUARIOS.DS.SET_BLOCK);
 
 
 

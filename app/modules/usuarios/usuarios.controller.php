@@ -127,6 +127,10 @@
 					if(@$_SESSION['userPerm'] == 1){
 						$user->l();
 						$data = array('data' => $user->params);
+						//var_dump($user->params);
+						//$h = $user->getRows();
+						//echo '<br>'.var_dump($h);
+						//echo '<br>'.$h[0]['idUsuario'];
 						return usuarios_retornar_vista(VIEW_LIST, $data);
 					}
 					else{
@@ -181,6 +185,15 @@
 						unset($_POST);
 					}
 				break;
+
+				case SET_BLOCK:
+					echo 'block';
+				break;
+
+				case SET_DELETE:
+					echo 'delete';
+				break;
+
 
 				default:
 					$_POST['msg']='La ruta no existe.';

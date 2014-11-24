@@ -103,12 +103,26 @@
 			foreach ($r as $key => $value) {
 				if(@$clave != 'pass')
 					$this->params .= '<tr>';
-
+				//$aux = $key;
 				foreach ($r[$key] as $clave => $valor){
+					if($clave != 'pass'){
+						if($clave == 'bloqueado' or $clave == 'activo'){
+							$this->params .= '<td><input type="checkbox" id="'.$clave.'"';
+							if($valor == 1)
+								$this->params .= ' checked></td>';
+							else
+								$this->params .= '></td>';
+						}
+						else{
+							$this->params .= '<td>'.$valor.'</td>';
+						}
+					}
 
-					if($clave != 'pass')
-						$this->params .= '<td>'.$valor.'</td>';	
 				}
+
+				//Acciones
+				$this->params .='<td><a href="usuarios/edit/'.$r[$key]['idUsuario'].'">Modificar</a></td>';
+				$this->params .='<td><a href="usuarios/delete/'.$r[$key]['idUsuario'].'">Eliminar</a></td>';
 
 				if(@$clave != 'pass')
 					$this->params .= '</tr>';
@@ -117,22 +131,46 @@
 
 
 		public function edit($uId){
-				$q = "SELECT nombre, apellido1, apellido2, usuario, email, tipoUsuario FROM usuarios
+				$q = "SELECT nombre, apellido1, apellido2, usuario, email, bloqueado, activo, tipoUsuario FROM usuarios
 					  WHERE idUsuario='".$uId."'";
 
 				$this->setQuery($q);
 				$this->get_results_from_query();
 				$this->params = $this->getRows();
+				//cambiamos los valores numericos a checked o no
+				foreach ($this->params[0] as $key => $value) {
+					if($key == 'bloqueado' or $key == 'activo'){
+						if($value == 1)
+							$this->params[0][$key] = 'checked';
+						else
+							$this->params[0][$key] = '';
+					}
+				}
+
 				@session_start();
 				$_SESSION['userPermAux'] = $this->params[0]['tipoUsuario'];
 			
 		}
 
 		public function update($uId){
+			//corregimos activo
+			if(@$_POST['activo'] == 'on')
+				$_POST['activo'] = 1;
+			else
+				$_POST['activo'] = 0;
+
+			//corregimos bloqueado
+			if(@$_POST['bloqueado'] == 'on')
+				$_POST['bloqueado'] = 1;
+			else
+				$_POST['bloqueado'] = 0;
+
 			$q = "UPDATE usuarios SET nombre='".@$_POST['nombre'].
 												"', apellido1='".@$_POST['apellido1'].
 												"', apellido2='".@$_POST['apellido2'].
-												"', usuario='".@$_POST['usuario']."'";
+												"', bloqueado=".@$_POST['bloqueado'].
+												", activo=".@$_POST['activo'].
+												", usuario='".@$_POST['usuario']."'";
 												if(@$_POST['tipoUsuario'])
 													$q .= ", tipoUsuario=".@$_POST['tipoUsuario'];
 
