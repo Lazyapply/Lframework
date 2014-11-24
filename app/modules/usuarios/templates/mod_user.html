@@ -19,11 +19,12 @@
 			<label for="email">Email</label>
 				<input type="text" id="email" name="email" value="{email}"><br/>
 
+			<?php @session_start(); if($_SESSION['userPerm'] == 1): ?>
 			<label for="bloqueado">Bloqueado</label>
 				<input type="checkbox" id="bloqueado" name="bloqueado" {bloqueado}><br/>
 			<label for="activo">Activo</label>
 				<input type="checkbox" id="activo" name="activo" {activo}><br/>
-
+			<?php endif ?>
 			<?php @session_start(); if($_SESSION['userPerm'] == 1): ?>
 			<select type="text" id="tipoUsuario" name="tipoUsuario">
 					<?php 

@@ -27,13 +27,15 @@
 			<ul>
 				<li><a href="{VIEW_INI}">Inicio</a></li>
 				<li><a href="{VIEW_ABOUT}">About</a></li>
-				<li><a href="usuarios/signup">Registro</a></li>
 				<?php
 					@session_start();
-				 		if(isset($_SESSION['userName']))
+				 		if(isset($_SESSION['userName'])){
 				 			echo '<li><a href="usuarios/logout">Logout</a></li>';
-				 		else
+				 		}
+				 		else{
 				 			echo '<li><a href="usuarios/login">Login</a></li>';
+				 			echo '<li><a href="usuarios/signup">Registro</a></li>';
+				 		}
 				 ?>
 				
 				
