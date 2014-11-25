@@ -170,10 +170,10 @@
 					else{
 						if($_SESSION['userPerm'] == 1){
 
-							if(@count($x) == 0)
-								$user->update($_SESSION['userId']);
+							if(isset($_SESSION['aux']))
+								$user->update($_SESSION['aux']);
 							else
-								$user->update($_SESSION['aux']);		
+								$user->update($_SESSION['userId']);		
 
 						}
 						else{
