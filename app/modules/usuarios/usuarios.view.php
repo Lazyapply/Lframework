@@ -3,18 +3,19 @@
 	/**********************************************************
 
 		Módulo:				USUARIOS
-		Archivo:			core.usuarios.php
+		Archivo:			usuarios.view.php
 		Alias:				----
 		Fecha creacion:		14/11/2014
-		Ultima modif:		14/11/2014
+		Ultima modif:		27/11/2014
 		Versión: 			0.1
 		Autor: 				@dvel_
 
 
 		Descripción:
-		Este módulo es el encargado de arrancar el framework, 
-		llamará a la función ini, para mostrar el inicio de la
-		aplicación.
+		Este módulo es el encargado de gestionar todo lo relacionado
+		con los usuarios (ABM)
+		Actualmente, la eliminación no está programada, se utilizará
+		un sistema de usuarios (activo/bloqueado)
 	**********************************************************/
 
 
@@ -29,7 +30,8 @@
 									 VIEW_LOGIN		=> 'Autentificación',
 									 VIEW_LIST		=> 'Lista de usuarios',
 									 VIEW_EDIT		=> 'Modificar usuario',
-									 VIEW_CP		=> 'Panel de control de Usuarios'
+									 VIEW_CP		=> 'Panel de control de Usuarios',
+									 VIEW_PASS		=> 'Cambiar contraseña'
 									),
 			'links_menu'	=> array('VIEW_ADD'		=> GO_ADD,
 									 'VIEW_SIGNUP'	=> GO_SIGNUP,

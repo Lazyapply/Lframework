@@ -1,20 +1,50 @@
 <section id="area_principal">
 <article>
-	<div>
-		{subtitulo}
-	</div>
 	
-	<br/><br/><br/>
-	<form action="usuarios/login" method="POST">
-		<fieldset>
-			<label for="usuario">usuario</label>
-				<input type="text" id="usuario" name="usuario"><br/>
-			<label for="pass">Contraseña</label>
-				<input type="text" id="pass" name="pass"><br/>
-			<input type="reset" value="Borrar datos">
-			<input type="submit" value="Autentificarse" id="add" name="add">
-		</fieldset>
-	</form>
+		
 
+	<div class="row">
+		<div class="col s12 car card-panel blue-grey lighten-5">
+		<br>
+		<br>
+		<br>
+			<div class="row">
+				<div class="col s12 center-align">
+					<h4>{subtitulo}</h4>
+
+				</div>
+			</div>
+			<br />
+			<div class="row">
+				<div class="col offset-s3 s6">
+				  	<form action="usuarios/login" method="POST" autocomplete="off">
+					    <div class="row">
+					      <div class="input-field col s12">
+					        <i class="mdi-action-account-circle prefix"></i>
+					        <input id="usuario" name="usuario" type="text" class="validate">
+					        <label for="usuario" >Usuario</label>
+					      </div>
+					      <div class="input-field col s12">
+					        <i class="mdi-communication-vpn-key prefix"></i>
+					        <input id="pass" name="pass" type="password" class="validate">
+					        <label for="pass">Contraseña</label>
+					      </div>
+					      <br>
+					      <div class="row center">
+					      		<div class="marginTop">
+						      	  <button class="btn login" type="reset" name="action">Reset
+								    <i class="mdi-navigation-refresh right"></i>
+								  </button>
+							      <button class="btn login" type="submit" name="action">Autenticarse
+								    <i class="mdi-content-send right"></i>
+								  </button>
+								</div>
+						  </div>
+					    </div>
+				  </form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </article>

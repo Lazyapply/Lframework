@@ -47,9 +47,12 @@
 		//TODO: agregar patron singleton
 		
 
+		
+
 
 		public function setQuery($q){$this->query = $q;}
 		public function getRows(){return $this->rows;}
+		public function clearRows(){unset($this->rows);}
 	}
 
  ?>

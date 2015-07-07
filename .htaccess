@@ -1,12 +1,17 @@
-#Options -Indexes
 DirectoryIndex site_map/index.php
 
-
+#Enable modRewrite
+#------------------------------------
 RewriteEngine  on
 RewriteBase /Lframework/
 
-RewriteCond %{REQUEST_FILENAME} !\.css
-RewriteCond %{REQUEST_FILENAME} !\.js
+
+#disable rewrite for specific folders
+#------------------------------------
+RewriteCond %{REQUEST_URI} !(public) [NC]
+RewriteCond %{REQUEST_URI} !(css) [NC]
+RewriteCond %{REQUEST_URI} !(js) [NC]
+
 
 
 RewriteRule ^(.+)$  site_map/index.php?url=$1 [PT,QSA]

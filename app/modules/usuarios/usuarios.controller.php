@@ -2,28 +2,32 @@
 	/**********************************************************
 
 		Módulo:				USUARIOS
-		Archivo:			core.usuarios.php
+		Archivo:			usuarios.controller.php
 		Alias:				----
 		Fecha creacion:		13/11/2014
-		Ultima modif:		14/11/2014
+		Ultima modif:		27/11/2014
 		Versión: 			0.1
 		Autor: 				@dvel_
 
 
 		Descripción:
-		Este módulo es el encargado de arrancar el framework, 
-		llamará a la función ini, para mostrar el inicio de la
-		aplicación.
+		Este módulo es el encargado de gestionar todo lo relacionado
+		con los usuarios (ABM)
+		Actualmente, la eliminación no está programada, se utilizará
+		un sistema de usuarios (activo/bloqueado)
 	**********************************************************/
 
 	require_once 'constants.php';
 	require_once 'usuarios.model.php';
 	require_once 'usuarios.view.php';
+	require_once CORE_PATH.DS.'request.php';
 
 	function handler($event){
 
 		$user = set_obj();
-
+		$req = new request();
+		@session_start();
+		$_SESSION['lastModule'] = USUARIOS;
 		#eventos
 		switch ($event) {
 
@@ -101,7 +105,7 @@
 					}
 					else{
 						if($user->login()){
-							$_POST['msg']='Te has logueado satisfactoriamente';
+							
 							return usuarios_retornar_vista(VIEW_MSG);
 							unset($_POST);
 						}
@@ -125,6 +129,8 @@
 				case SET_LIST:
 					@session_start();
 					if(@$_SESSION['userPerm'] == 1){
+
+						$_SESSION['lastPath'] = SET_LIST;
 						$user->l();
 						$data = array('data' => $user->params);
 						//var_dump($user->params);
@@ -173,7 +179,8 @@
 							if(isset($_SESSION['aux']))
 								$user->update($_SESSION['aux']);
 							else
-								$user->update($_SESSION['userId']);		
+								$user->update($_SESSION['userId']);
+									
 
 						}
 						else{
@@ -185,20 +192,77 @@
 						unset($_POST);
 					}
 				break;
+				case SET_PASS:
+					if (empty($_POST)) {
+						return usuarios_retornar_vista(VIEW_PASS);
+					}
+					else
+					{
+						$cambio = $user->pass();
+						unset($_POST);
+						if ($cambio) {
+							$_POST['msg']='La contraseña se ha modificado correctamente';
+						}
+						else{
+							$_POST['red'] = 'usuarios/pass';
+							$_POST['msg']='La contraseña actual no coincide';
+						}
 
+						return usuarios_retornar_vista(VIEW_MSG);
+						unset($_POST);
+
+					}
+
+
+				break;
 				case SET_BLOCK:
 					echo 'block';
 				break;
 
 				case SET_DELETE:
-					echo 'delete';
-				break;
+					@session_start();
+					if(isset($_SESSION['userPerm']) && $_SESSION['userPerm'] == 1){
+						
+
+						//$id = $page;
+
+						$argv = $req->getArgs();
+						$id = $argv[0];
+
+						echo 'DELETE<br>';
+						echo 'lastPath: '.$_SESSION['lastPath'].'<br>';
+						echo 'ID:'.$id.'<br>';
+						echo "borrado<hr>";
+
+
+						$user->delete($id);
+						//en caso de venir de un listado
+						$newURL = '/GMR/usuarios/l';
+						
+
+						//echo '<br>Sin Redirección: <br>'.$newURL;
+						header('Location: '.$newURL);
+					}
+					else{
+						$_POST['msg']='No tienes permisos para acceder a esta sección de la aplicación.';
+						return usuarios_retornar_vista(VIEW_ERR);
+						unset($_POST);
+					}
+
+			break;
 
 
 				default:
-					$_POST['msg']='La ruta no existe.';
-						return usuarios_retornar_vista(VIEW_ERR);
+						//$_POST['msg']='La ruta no existe.';
+						//return usuarios_retornar_vista(VIEW_ERR);
+						
 						unset($_POST);
+
+				header("HTTP/1.0 404 Not Found");
+				echo "<h1>404 Not Found</h1>";
+				echo "The page that you have requested could not be found.";
+				echo '<p>Error, metodo no encontrado. </p>';
+				exit();
 					break;
 		}
 	}

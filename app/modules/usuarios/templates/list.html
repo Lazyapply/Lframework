@@ -1,39 +1,44 @@
 <section id="area_principal">
 <article>
-	<div>
-		{subtitulo}
-	</div>
-	<div>
-		<nav id="menu">
+		<!-- <nav id="menu">
 			<ul>
 				<li><a href="{VIEW_ADD}">Añadir usuario</a></li>
 				<li><a href="{VIEW_LIST}">Mostrar usuarios</a></li>
 			</ul>
-		</nav>
-	</div>
+		</nav> -->
+
+	
+<br>
 	<div>
-		<table border="1">
-			<th>
+		<h5 class="header">
+			<blockquote>
+	     		{subtitulo}			
+	    	</blockquote>
+    	</h5>
+		<table class="hoverable bordered ">
+			<thead class="blue-grey lighten-5">
 				<tr>
-					<td>Id</td>
-					<td>Nombre</td>
-					<td>Apellido 1</td>
-					<td>Apellido 2</td>
-					<td>Usuario</td>
-					<td>Email</td>
-					<td>Bloqueado</td>
-					<td>Activo</td>
-					<td>Tipo usuario</td>
-					<td colspan="2">Acciones</td>
+					<th class="center-align">Id</th>
+					<th class="center-align">Nombre</th>
+					<th class="center-align">Apellido 1</th>
+					<th class="center-align">Apellido 2</th>
+					<th class="center-align"><i class="mdi-action-account-circle small"></i></th>
+					<th class="center-align">Email</th>
+					
+					<th class="center-align">Activo</th>
+					<th class="center-align">Tipo usuario</th>
+					<th class="center-align tr-left" colspan="2"><i class="mdi-action-perm-data-setting small"></th>
 				</tr>
-			</th>
+			</thead>
+			<tbody>
 				{data}
-
+			</tbody>
 		</table>
+		<a href="{VIEW_ADD}" class="add-user btn-floating btn-large waves waves-effect red"><i class="mdi-content-add"></i></a>
 
-
+		
 
 	</div>
-
+	<br>
 
 </article>

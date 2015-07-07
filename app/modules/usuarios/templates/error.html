@@ -1,12 +1,22 @@
 <section id="area_principal">
 	<article>
-		<div>
-			{subtitulo}
+	<br>
+	<br>
+	<div class="col s12">
+		<div class="row">
+			<div class="col s12">
+				<h3 class="center"><?php echo $_POST['msg']; ?></h3>
+			</div>
+			<div class="col s12 center">
+				<i class="mdi-alert-warning large red-text"></i>
+			</div>
+			<!-- <button onclick="goBack();">atrás</button> -->
+
+			<div class="btnError col s6 offset-s3 center">
+				<button onclick="goBack();" class="btn login">Atrás</button>	
+			</div>
 		</div>
-		<div>
-			<h1><?php echo $_POST['msg']; ?></h1>
-			<button onclick="goBack();">atrás</button>
-		</div>
+	</div>
 	</article>
 </section>
 

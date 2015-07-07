@@ -1,61 +1,125 @@
 
 <section id="area_principal">
 <article>
-	<div>
-		{subtitulo}
-	</div>
 	
-	<br/><br/><br/>
-	<form action="usuarios/edit" method="POST">
-		<fieldset>
-			<label for="nombre">Nombre</label>
-				<input type="text" id="nombre" name="nombre" value="{nombre}">
-			<label for="apellido1">Primer apellido</label>
-				<input type="text" id="apellido1" name="apellido1" value="{apellido1}">
-			<label for="apellido2">Segundo apellido</label>
-				<input type="text" id="apellido2" name="apellido2" value="{apellido2}">
-			<label for="usuario">Nombre de usuario</label>
-				<input type="text" id="usuario" name="usuario" value="{usuario}">
-			<label for="email">Email</label>
-				<input type="text" id="email" name="email" value="{email}"><br/>
+	
 
-			<?php @session_start(); if($_SESSION['userPerm'] == 1): ?>
-			<label for="bloqueado">Bloqueado</label>
-				<input type="checkbox" id="bloqueado" name="bloqueado" {bloqueado}><br/>
-			<label for="activo">Activo</label>
-				<input type="checkbox" id="activo" name="activo" {activo}><br/>
-			<?php endif ?>
-			<?php @session_start(); if($_SESSION['userPerm'] == 1): ?>
-			<select type="text" id="tipoUsuario" name="tipoUsuario">
-					<?php 
-						@session_start();
+	<div class="row">
+		<div class="col s12 car card-panel blue-grey lighten-5">
+		<br>
+		<br>
+		<br>
+			<div class="row">
+				<div class="col s12 center-align">
+					<h4>{subtitulo}</h4>
+				</div>
+			</div>
+			<br />
+			<div class="row">
+				<div class="col s12">
+				  	<form action="usuarios/edit" method="POST">
+					    <div class="row paddingSingUp">
+					      <div class="input-field col s4">
+					        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+					        <input type="text" id="nombre" name="nombre" value="{nombre}" class="validate">
+					        <label for="nombre">Nombre</label>
+					      </div>
+					      <div class="input-field col s4">
+					        <!-- <i class="mdi-communication-vpn-key prefix"></i> -->
+					        <input id="apellido1" name="apellido1" type="text" value="{apellido1}" class="validate">
+					        <label for="apellido1">Primer Apellido</label>
+					      </div>
+					      <div class="input-field col s4">
+					        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+					        <input id="apellido2" name="apellido2" type="text" value="{apellido2}" class="validate">
+					        <label for="apellido2" >Segundo Apellido</label>
+					      </div>
+					   	
+					      <div class="input-field col s6">
+					        <!-- <i class="mdi-communication-vpn-key prefix"></i> -->
+					        <input id="usuario" name="usuario" type="text" value="{usuario}" class="validate">
+					        <label for="usuario">Nombre de usuario</label>
+					      </div>
+							<div class="input-field col s6">
+						        <!-- <i class="mdi-communication-vpn-key prefix"></i> -->
+						        <input id="email" name="email" type="text" value="{email}" class="validate">
+						        <label for="email">Email</label>
+					      	</div>
+					      <div class="input-field col s3 center">
+						        <?php @session_start(); if($_SESSION['userPerm'] == 1): ?>
+									<br><input type="checkbox" id="activo" name="activo" {activo}>
+									<label for="activo">Activo</label>
+								<?php endif ?>
+					      </div>
+					      <div class="col s3 left"><br><br>
+								<a href="usuarios/pass" class="btn login changePass blue-grey darken-1" id="add" name="add">Cambiar
+								    <i class="mdi-communication-vpn-key right"></i>
+								 </a>
+					      </div>
+					       <div class="input-field col s12">
+					    	 <?php 
+								@session_start();
+								if($_SESSION['userPerm'] <= 2 ){
+									echo '<div class="col s6" id="selectExtDonante"></div>';
+								 }
+							 ?>
+							 </div>
 
-						if(@$_SESSION['userPermAux'] == 1){
-							echo '<option value="1" selected="selected">Admin</option>';
-						}
-						else{
-							echo '<option value="1">Admin</option>';
-						}
+					      <div class="input-field col s6">
+						       <?php @session_start(); if($_SESSION['userPerm'] == 1): ?>
+								<select type="text" id="tipoUsuario" name="tipoUsuario">
+										<?php 
+											@session_start();
 
-						if(@$_SESSION['userPermAux'] == 2){
+											if(@$_SESSION['userPermAux'] == 1){
+												echo '<option value="1" selected="selected">Admin</option>';
+											}
+											else{
+												echo '<option value="1">Admin</option>';
+											}
 
-							echo '<option value="2" selected="selected">Documentalista</option>';
-						}
-						else{
-							echo '<option value="2">Documentalista</option>';
-						}
+											if(@$_SESSION['userPermAux'] == 2){
 
-						if(@$_SESSION['userPermAux'] == 3){
-							echo '<option value="3" selected="selected">Usuario</option>';
-						}
-						else{
-							echo '<option value="3">Usuario</option>';
-						}
-					?>
-		
-				</select>
-			<?php endif ?>
-			<input type="submit" value="Modificar" id="add" name="add">
-		</fieldset>
-	</form>
+												echo '<option value="2" selected="selected">Documentalista</option>';
+											}
+											else{
+												echo '<option value="2">Documentalista</option>';
+											}
+
+											if(@$_SESSION['userPermAux'] == 3){
+												echo '<option value="3" selected="selected">Usuario</option>';
+											}
+											else{
+												echo '<option value="3">Usuario</option>';
+											}
+
+											if(@$_SESSION['userPermAux'] == 4){
+												echo '<option value="4" selected="selected">Donante</option>';
+											}
+											else{
+												echo '<option value="4">Donante</option>';
+											}
+										?>
+							
+									</select>
+								<?php endif ?>
+					      </div>
+					      <br>
+					      <br>
+					      <br>
+					      <br>
+					      <br>
+					      <div class="row center">
+					      		<div class="marginTop">
+							      <button class="btn login" type="submit" id="add" name="add">Modificar
+								    <i class="mdi-editor-border-color right"></i>
+								  </button>
+								</div>
+						  </div>
+					    </div>
+				  </form>
+				</div>
+			</div>
+		</div>
+	</div>
 </article>

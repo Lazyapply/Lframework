@@ -1,46 +1,94 @@
 
 <section id="area_principal">
 <article>
-	<div>
-		{subtitulo}
-	</div>
-	<div>
+	
+	<!-- <div>
 		<nav id="menu">
 			<ul>
 				<li><a href="{VIEW_ADD}">Añadir usuario</a></li>
 				<li><a href="{VIEW_LIST}">Mostrar usuarios</a></li>
 			</ul>
 		</nav>
-	</div>
-	<br/><br/><br/>
-	<form action="usuarios/add" method="POST">
-		<fieldset>
-			<label for="nombre">Nombre</label>
-				<input type="text" id="nombre" name="nombre"><br/>
-			<label for="apellido1">Primer apellido</label>
-				<input type="text" id="apellido1" name="apellido1"><br/>
-			<label for="apellido2">Segundo apellido</label>
-				<input type="text" id="apellido2" name="apellido2"><br/>
-			<label for="usuario">Nombre de usuario</label>
-				<input type="text" id="usuario" name="usuario"><br/>
-			<label for="pass">Contraseña</label>
-				<input type="text" id="pass" name="pass"><br/>
-			<label for="r_pass">Repite la contraseña</label>
-				<input type="text" id="r_pass" name="r_pass"><br/>
-			<label for="email">Email</label>
-				<input type="text" id="email" name="email"><br/>
-			<label for="tipoUsuario">Tipo de usuario</label>
-			<!--TODO: cambiar tipos de usuarios de forma dinamica -->
-				<select type="text" id="tipoUsuario" name="tipoUsuario">
-					<option value="1">Admin</option>
-					<option value="2">Documentalista</option>
-					<option value="3">Usuario</option>
-				</select>
-				<br/>
-			<input type="reset" value="Borrar datos">
-			<input type="submit" value="A&ntilde;adir usuario" id="add" name="add">
-		</fieldset>
-	</form>
+	</div> -->
+	<div class="row">
+		<div class="col s12 car card-panel blue-grey lighten-5">
+		<br>
+		<br>
+		<br>
+			<div class="row">
+				<div class="col s12 center-align">
+					<h4>{subtitulo}</h4>
+				</div>
+			</div>
+			<br />
+			<div class="row">
+				<div class="col s12">
+					<form action="usuarios/add" method="POST">
+						<div class="row paddingSingUp">
+							<div class="input-field col s4">
+						        <input type="text" id="nombre" name="nombre" class="validate" required>
+						        <label for="nombre">Nombre</label>
+					      </div>
+					      <div class="input-field col s4">
+					        <!-- <i class="mdi-communication-vpn-key prefix"></i> -->
+					        <input id="apellido1" name="apellido1" type="text" class="validate" required>
+					        <label for="apellido1">Primer Apellido</label>
+					      </div>
+					      <div class="input-field col s4">
+					        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+					        <input id="apellido2" name="apellido2" type="text" class="validate" required>
+					        <label for="apellido2" >Segundo Apellido</label>
+					      </div>
 
+						
+						<div class="input-field col s6 offset-s3">
+						        <input id="usuario" name="usuario" type="text" class="validate" required>
+						        <label for="usuario">Nombre de usuario</label>
+					     </div>
+					     <div class="divider col s12"></div>
+					     <div class="input-field col s6"><br>
+						        <label for="pass">Contraseña</label>
+								<input type="password" id="pass" name="pass" class="validate" required>
+					     </div>
+					     <div class="input-field col s6"><br>
+						        <label for="r_pass">Repite la contraseña</label>
+								<input type="password" id="r_pass" name="r_pass" class="validate" required>
+					     </div>
+					     <div class="divider col s12"></div>
+
+					     <div class="input-field col s6"><br>
+						        <label for="email">Email</label>
+								<input type="text" id="email" name="email" class="validate" required>
+					     </div>
+					      <div class="input-field col s6">
+					      		<label for="tipoUsuario" class="active">Rol</label>
+						        <select type="text" id="tipoUsuario" name="tipoUsuario" class="margin-top-select">
+									<option value="1">Admin</option>
+									<option value="2">Documentalista</option>
+									<option value="3">Usuario</option>
+									<option value="4">Donante</option>
+								</select>
+					     </div>
+					      <br>
+					      <br>
+					      <br>
+					      <br>
+					      <br>
+					      <div class="row center">
+					      		<div class="marginTop">
+							      <button class="btn login" onclick="goBack();">Atrás
+								    <i class="mdi-navigation-refresh right"></i>
+								  </button>
+							      <button class="btn login" type="submit" name="add">Añadir
+								    <i class="mdi-content-send right"></i>
+								  </button>
+								</div>
+						  </div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </article>

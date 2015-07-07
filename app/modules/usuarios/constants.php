@@ -14,6 +14,7 @@
 	define('SET_FORGOT', 	'forgot');
 	define('SET_LOGOUT', 	'logout');
 	define('SET_CP', 		'controlPanel');
+	define('SET_PASS', 		'pass');
 
 
 	#actions
@@ -40,6 +41,7 @@
 	define('VIEW_FORGOT', 	'forgot');
 	define('VIEW_LOGOUT', 	'logout');
 	define('VIEW_CP', 		'cp');
+	define('VIEW_PASS', 	'edit_pass');
 
 
 

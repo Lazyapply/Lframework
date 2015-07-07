@@ -1,7 +1,87 @@
 
 <section id="area_principal">
 <article>
-	<div>
+
+	<br>
+	
+
+	<div class="row">
+		<div class="col s12 car card-panel blue-grey lighten-5">
+		<br>
+		<br>
+		<br>
+			<div class="row">
+				<div class="col s12 center-align">
+					<h4>{subtitulo}</h4>
+				</div>
+			</div>
+			<br />
+			<div class="row">
+				<div class="col s12">
+				  	<form action="usuarios/signup" method="POST">
+					    <div class="row paddingSingUp">
+					      <div class="input-field col s4">
+					        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+					        <input id="nombre" name="nombre" type="text" class="validate">
+					        <label for="nombre" >Nombre</label>
+					      </div>
+					      <div class="input-field col s4">
+					        <!-- <i class="mdi-communication-vpn-key prefix"></i> -->
+					        <input id="apellido1" name="apellido1" type="text" class="validate">
+					        <label for="apellido1">Primer Apellido</label>
+					      </div>
+					      <div class="input-field col s4">
+					        <!-- <i class="mdi-action-account-circle prefix"></i> -->
+					        <input id="apellido2" name="apellido2" type="text" class="validate">
+					        <label for="apellido2" >Segundo Apellido</label>
+					      </div>
+					   	
+					      <div class="input-field col s6">
+					        <!-- <i class="mdi-communication-vpn-key prefix"></i> -->
+					        <input id="usuario" name="usuario" type="text" class="validate">
+					        <label for="usuario">Nombre de usuario</label>
+					      </div>
+					      <div class="input-field col s6">
+					        <!-- <i class="mdi-communication-vpn-key prefix"></i> -->
+					        <input id="pass" name="pass" type="password" class="validate">
+					        <label for="pass">Contraseña</label>
+					      </div>
+						  
+						   <div class="input-field col s6">
+					        <!-- <i class="mdi-communication-vpn-key prefix"></i> -->
+					        <input id="r_pass" name="r_pass" type="password" class="validate">
+					        <label for="r_pass">Repetir contraseña</label>
+					       </div>
+							<div class="input-field col s6">
+						        <!-- <i class="mdi-communication-vpn-key prefix"></i> -->
+						        <input id="email" name="email" type="text" class="validate">
+						        <label for="email">Email</label>
+					      	</div>
+					     <br>
+					     <br>
+					     <br>
+					     <br><br>
+					      <div class="row center">
+					      		<div class="marginTop">
+						      	  <button class="btn login" type="reset" name="action">Reset
+								    <i class="mdi-navigation-refresh right"></i>
+								  </button>
+							      <button class="btn login" type="submit" name="action">Autenticarse
+								    <i class="mdi-content-send right"></i>
+								  </button>
+								</div>
+						  </div>
+					    </div>
+				  </form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+<!-- 	<div>
 		{subtitulo}
 	</div>
 	
@@ -26,6 +106,6 @@
 			<input type="submit" value="Completar registro" id="add" name="add">
 		</fieldset>
 	</form>
-
+ -->
 
 </article>

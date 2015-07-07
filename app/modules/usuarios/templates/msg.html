@@ -1,11 +1,29 @@
 <section id="area_principal">
 	<article>
-		<div>
-			{subtitulo}
+	<br>
+	<br>
+	<div class="col s12">
+		<div class="row">
+			<div class="col s12">
+				<h3 class="center"><?php echo $_POST['msg']; ?></h3>
+			</div>
+			<div class="col s12 center">
+				<i class="mdi-navigation-check large teal-text lighten-2"></i>
+			</div>
+			
+			<div class="btnError col s6 offset-s5">
+			<?php 
+				if(isset($_POST['red'])) {
+					echo '<a href="'.$_POST['red'].'" class="btn login">Aceptar</a>';
+				}
+				else{
+					echo '<a href="core/inicio" class="btn login">Aceptar</a>';
+				}
+			?>
+				
+
+			</div>
 		</div>
-		<div>
-			<h1><?php echo $_POST['msg']; ?></h1>
-			<a href="core/inicio">Aceptar</a>	
-		</div>
+	</div>		
 	</article>
 </section>
