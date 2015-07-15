@@ -25,6 +25,7 @@ body {
 	min-height: 720px;
 	margin: .1em auto;
 	text-align: left;
+	position: relative;
 }
 
 #cabecera {
@@ -65,7 +66,9 @@ body {
 	clear: both;
 	text-align: center;
 	padding: 20px;
-	border-top: 2px solid #999999; 
+	border-top: 2px solid #999999;
+	position:absolute;
+	bottom:0;
 }
 
 article {
@@ -92,3 +95,4 @@ figcaption {
 	color: #FFFFFF;
 	cursor: pointer;
 }
+

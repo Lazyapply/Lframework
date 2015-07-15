@@ -48,7 +48,8 @@
 			$this->params = array(
 									'fecha'	=> $this->fecha,
 									'hora' 	=> $this->hora,
-									'autor'	=> $this->autor
+									'autor'	=> $this->autor,
+									'version' 	=> $this->version
 								);
 
 		}
