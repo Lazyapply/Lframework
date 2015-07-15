@@ -6,8 +6,8 @@
 		Archivo:			core.model.php
 		Alias:				----
 		Fecha creacion:		08/09/2014
-		Ultima modif:		02/10/2014
-		Versión: 			1.0
+		Ultima modif:		15/07/2015
+		Versión: 			1.1
 		Autor: 				@dvel_
 
 
@@ -71,6 +71,14 @@
 			$data = array('params' => $core->params);
 			require_once 'core.view.php';
 			return retornar_vista(VIEW_LAYOUT, $data);
+		}
+
+		public function setErrPage($customMsg = ''){
+				header("HTTP/1.0 404 Not Found");
+				echo "<h1>404 Not Found</h1>";
+				echo "<h3>".$customMsg."</h3>";
+				echo "The page that you have requested could not be found.";
+				echo '<p>Error, metodo no encontrado. </p>';
 		}
 
 	}

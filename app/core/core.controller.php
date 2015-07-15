@@ -42,10 +42,7 @@
 					break;
 
 				default:
-					/*$core->ini();
-					$data = array('params' => $core->params);
-					return retornar_vista(VIEW_INI, $data);*/
-					echo 'PATH NOT FOUND';
+					$core->setErrPage();
 					break;
 		}
 	}

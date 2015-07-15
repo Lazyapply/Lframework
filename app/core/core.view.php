@@ -44,17 +44,24 @@
 						);
 
 	
-	function get_template($template){
+	function get_template($template, $mode){
 		#cabecera, template, footer
 		$h =	CORE_PATH.DS.'templates'.DS.'sections'.DS.'section.header.html';
 		$t =	CORE_PATH.DS.'templates'.DS.$template.'.html';
 		$f =	CORE_PATH.DS.'templates'.DS.'sections'.DS.'section.footer.html';
 
 			#buffer para crear la plantilla
-			ob_start();
+			if($mode == 1){
+				ob_start();
 				include_once "$h";
 				include_once "$t";
 				include_once "$f";
+				
+			}
+			else{
+				ob_start();
+				include_once "$t";
+			}
 			$template = ob_get_clean();
 
 		return $template;
@@ -68,11 +75,11 @@
 		return $html;
 	}
 
-	function retornar_vista($vista, $data = array()){
+	function retornar_vista($vista, $data = array(), $mode = 1){
 
 		$diccionario = $GLOBALS['diccionario'];
 
-		$html = get_template($vista);
+		$html = get_template($vista, $mode);
 		$html = str_replace('{titulo}', $diccionario['titulo'][$vista], $html);
 		$html = str_replace('{subtitulo}', $diccionario['subtitulo'][$vista], $html);
 		$html = str_replace('{metaKey}', $diccionario['metaKey'][$vista], $html);
