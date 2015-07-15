@@ -209,7 +209,7 @@
 
 				
 
-				$q = "SELECT nombre, apellido1, apellido2, usuario, email, bloqueado, activo, tipoUsuario FROM usuarios
+				$q = "SELECT nombre, apellido1, apellido2, usuario, email, activo, tipoUsuario FROM usuarios
 					  WHERE idUsuario=".$uId."";
 		
 
@@ -246,63 +246,21 @@
 				$_POST['activo'] = 1;
 			else
 				$_POST['activo'] = 0;
-
-			//corregimos bloqueado
-			if(@$_POST['bloqueado'] == 'on')
-				$_POST['bloqueado'] = 1;
-			else
-				$_POST['bloqueado'] = 0;
-
+			
 			$q = "UPDATE usuarios SET nombre='".@$_POST['nombre'].
 												"', apellido1='".@$_POST['apellido1'].
 												"', apellido2='".@$_POST['apellido2'].
-												"', bloqueado=".@$_POST['bloqueado'].
-												", activo=".@$_POST['activo'].
+												"', activo=".@$_POST['activo'].
 												", usuario='".@$_POST['usuario']."'";
 												if(@$_POST['tipoUsuario'])
 													$q .= ", tipoUsuario=".@$_POST['tipoUsuario'];
 					$q .= " WHERE idUsuario='".$uId."'";
-
 				$this->setQuery($q);
 				$this->execute_single_query();
-
-				//ser_donante
-				$perm =  $this->getUserPerm($uId);
-				
-				//echo $perm.'<br>';
-				
-				if($perm == 4){
-					$a = $this->ifExsiteRelation($uId);
-					
-					if($a == 1){//update
-						$donantesQ = "UPDATE ser_donante SET idDonante=".$_POST['donanteExt']. " WHERE idUsuario =".$uId;
-					}
-					else{//insert
-						$donantesQ = "INSERT INTO ser_donante (idUsuario, idDonante) VALUES(".$uId.", ".$_POST['donanteExt'].")";
-					}
-					
-					
-
-					$this->setQuery($donantesQ);
-					$this->execute_single_query();
-				}
-				//end ser_donante
-
+				//echo $q;
 				unset($_POST);
 		}
 
-		public function ifExsiteRelation($uId){
-
-			$q = "SELECT count(*) FROM ser_donante WHERE idUsuario = ".$uId;
-			$this->setQuery($q);
-			$this->clearRows();
-			$this->get_results_from_query();
-			$aux = $this->getRows();
-			var_dump($aux);
-			$this->clearRows();
-			return $aux[0]["count(*)"];
-
-		}
 
 
 		public function delete($uId){

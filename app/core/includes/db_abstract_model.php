@@ -1,5 +1,5 @@
 <?php 
-	require_once ('config.php');
+	require_once INCLUDES.DS.'config.php';
 
 	abstract class DBAbstractModel {
 
@@ -25,7 +25,7 @@
 			$this->_connection->close();
 		}
 
-		public function execute_single_query(){
+		protected function execute_single_query(){
 			// if($_POST){
 				$this->_open_connection();
 				$this->_connection->query($this->query);
@@ -36,7 +36,7 @@
 			// }
 		}
 
-		public function get_results_from_query(){
+		protected function get_results_from_query(){
 			$this->_open_connection();
 			$result = $this->_connection->query($this->query);
 			while($this->rows[] = $result->fetch_assoc());

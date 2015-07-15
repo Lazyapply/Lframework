@@ -237,7 +237,7 @@
 
 						$user->delete($id);
 						//en caso de venir de un listado
-						$newURL = '/GMR/usuarios/l';
+						$newURL = '/'.WEB_NAME.'/usuarios/l';
 						
 
 						//echo '<br>Sin Redirección: <br>'.$newURL;
