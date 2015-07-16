@@ -1,5 +1,5 @@
 <?php 
-	require_once INCLUDES.DS.'config.php';
+	require_once CORE_PATH.DS.'config.php';
 
 	abstract class DBAbstractModel {
 

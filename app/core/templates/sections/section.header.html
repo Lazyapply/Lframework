@@ -5,7 +5,7 @@
 	<meta name="description" content="{metaDesc}">
 	<meta name="keywords" content="{metaKey}">
 	<title>{titulo}</title>
-	<base href="http://localhost/Lframework/site_map" />
+	<base href="http://localhost/<?php echo WEB_NAME; ?>/site_map" />
 	<link rel="stylesheet" href="site_map/css/responsiveGrid.css" />
 	<link rel="stylesheet" href="site_map/css/normalize.css" />
 	<link rel="stylesheet" href="site_map/css/Lframework.css" />
@@ -15,7 +15,7 @@
 <body>
 	<div id="caja_principal">
 		<header id="cabecera">
-			<h1><a href="/<?php echo WEB_NAME; ?>">{titulo}</a></h1>
+			<h1><a title="Ir a inicio" href="/<?php echo WEB_NAME; ?>">{titulo}</a></h1>
 			<div>
 				<?php
 					@session_start();
