@@ -162,7 +162,7 @@
 
 
 		public function l(){
-			$q = "SELECT * FROM usuarios";
+			$q = "SELECT idUsuario, nombre, apellido1, apellido2, usuario, email, activo, tipoUsuario FROM usuarios";
 			$this->setQuery($q);
 			$this->get_results_from_query();
 			$r = $this->getRows();
@@ -194,8 +194,8 @@
 				}
 
 				//Acciones
-				$this->params .='<td class="center-align tooltipped tr-left" data-position="top" data-delay="5" data-tooltip="Editar"><a href="usuarios/edit/'.$r[$key]['idUsuario'].'"><i class="mdi-image-edit tiny umh-blue"></i></a></td>';
-				$this->params .='<td class="center-align tooltipped" data-position="top" data-delay="5" data-tooltip="Eliminar"><a href="usuarios/delete/'.$r[$key]['idUsuario'].'"><i class="mdi-action-delete tiny umh-red"></i></a></td>';
+				$this->params .='<td class="center-align tooltipped tr-left" data-position="top" data-delay="5" data-tooltip="Editar"><a href="usuarios/edit/'.$r[$key]['idUsuario'].'"><i class="mdi-image-edit tiny umh-blue"></i>Editar</a></td>';
+				$this->params .='<td class="center-align tooltipped" data-position="top" data-delay="5" data-tooltip="Eliminar"><a href="usuarios/delete/'.$r[$key]['idUsuario'].'"><i class="mdi-action-delete tiny umh-red"></i>Eliminar</a></td>';
 
 				if(@$clave != 'pass')
 					$this->params .= '</tr>';
