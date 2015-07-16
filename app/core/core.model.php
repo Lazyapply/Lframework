@@ -33,7 +33,7 @@
 		function __construct(){
 			$this->fecha 	= date('d-m-Y');
 			$this->hora 	= date ('H:i:s');
-			$this->version 	= '0.2';
+			$this->version 	= '0.3-dev';
 			$this->licencia	= 'NPI';
 			$this->autor	= '@Dvel_';
 		}

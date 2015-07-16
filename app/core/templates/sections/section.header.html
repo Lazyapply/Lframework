@@ -31,6 +31,8 @@
 					@session_start();
 				 		if(isset($_SESSION['userName'])){
 				 			echo '<li><a href="usuarios/logout">Logout</a></li>';
+				 			if($_SESSION['userPerm'] == 1)
+				 				echo '<li><a href="usuarios/l">Usuarios</a></li>';
 				 		}
 				 		else{
 				 			echo '<li><a href="usuarios/login">Login</a></li>';
