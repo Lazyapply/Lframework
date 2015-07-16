@@ -8,7 +8,7 @@ RewriteBase /Lframework/
 
 #disable rewrite for specific folders
 #------------------------------------
-RewriteCond %{REQUEST_URI} !(public) [NC]
+RewriteCond %{REQUEST_URI} !(static) [NC]
 RewriteCond %{REQUEST_URI} !(css) [NC]
 RewriteCond %{REQUEST_URI} !(js) [NC]
 
