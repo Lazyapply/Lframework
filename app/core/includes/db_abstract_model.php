@@ -13,13 +13,25 @@
 		protected $rows;
 		private $_connection;
 		public $mensaje;
+		public $errors = array();
 
-
+		public function __destruct(){
+			unset($this);
+		}
 
 
 		private function _open_connection(){
-			$this->_connection = new mysqli($this->db_host, $this->db_user,
+			mysqli_report(MYSQLI_REPORT_STRICT);
+			try{
+				$this->_connection = new mysqli($this->db_host, $this->db_user,
 			                               $this->db_pass, $this->db_name);
+				
+			}catch (Exception  $e){
+
+				array_push($this->errors, ('['.$e->getCode().'] - '.$e->getMessage()));
+				var_dump($this->errors);
+				die();
+			}
 			mysqli_set_charset($this->_connection, 'utf8');
 		}
 
@@ -29,22 +41,32 @@
 
 		protected function execute_single_query(){
 
-				$this->_open_connection();
-				$this->_connection->query($this->query);
-				$this->_close_connection();
+			$this->_open_connection();
+			$this->_connection->query($this->query);
+			$this->_close_connection();
 		}
 
 		protected function get_results_from_query(){
 			$this->_open_connection();
-			$result = $this->_connection->query($this->query);
-			while($this->rows[] = $result->fetch_assoc());
-			$result->close();
-			$this->_close_connection();
-			array_pop($this->rows);
+	
+				$result = $this->_connection->query($this->query);
+				while($this->rows[] = $result->fetch_assoc());
+				$result->close();
+				$this->_close_connection();
+				array_pop($this->rows);
+
 		}
 		//TODO: agregar patron singleton
 		
-
+		public function testConnection(){
+			$this->_open_connection();
+			if($this->_connection)
+				return true;
+			else{
+				$this->getErrors();
+			}
+			$this->_close_connection();
+		}
 		
 
 
@@ -52,6 +74,8 @@
 		public function getQuery(){return $this->query;}
 		public function getRows(){return $this->rows;}
 		public function clearRows(){unset($this->rows);}
+		public function getErrors(){return $this->errors;}
+
 	}
 
  ?>
