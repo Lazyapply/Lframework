@@ -15,7 +15,10 @@ class test extends DBAbstractModel{
 
 $t = new test();
 echo '<h1>Test conexion</h1><br>';
-$t->testConnection().'<br>';
+if($t->testConnection())
+	echo "todo ok";
+
+var_dump($t->getCurrentConnections());
 // var_dump($t->getErrors());
 
 // echo '<h1>Error provocado</h1><br>';

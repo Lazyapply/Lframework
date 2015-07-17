@@ -29,7 +29,7 @@
 			}catch (Exception  $e){
 
 				array_push($this->errors, ('['.$e->getCode().'] - '.$e->getMessage()));
-				var_dump($this->errors);
+				var_dump($this->getErrors());
 				die();
 			}
 			mysqli_set_charset($this->_connection, 'utf8');
@@ -48,8 +48,13 @@
 
 		protected function get_results_from_query(){
 			$this->_open_connection();
-	
+			
+			try{
 				$result = $this->_connection->query($this->query);
+				
+			}catch (Exception $e){
+				
+			}
 				while($this->rows[] = $result->fetch_assoc());
 				$result->close();
 				$this->_close_connection();
@@ -68,6 +73,11 @@
 			$this->_close_connection();
 		}
 		
+		public function getCurrentConnections(){
+			$this->query = "SHOW PROCESSLIST";
+			$this->get_results_from_query();
+			return $this->rows;
+		}
 
 
 		public function setQuery($q){$this->query = $q;}

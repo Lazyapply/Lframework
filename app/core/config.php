@@ -8,7 +8,7 @@
 	define('DB_HOST', 'us-cdbr-azure-west-c.cloudapp.net');
 	define('DB_USER', 'b59f1ed60ed545');
 	define('DB_PASS', '30b48cad');
-	define('DB_NAME', 'gp2cr');
+	define('DB_NAME', 'gpcr');
 
 
 	#Controllers
