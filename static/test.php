@@ -26,7 +26,7 @@ var_dump($t->getCurrentConnections());
 // var_dump($t->getErrors());
 
 echo '<h1>Error provocado (SELECT)</h1><br>';
-$q = "SELECT caca FROM usuarios";
+$q = "SELECT * FROM usuarios";
 $t->setQuery($q);
 $t->get_results_from_query();
 echo $t->getRowCount();
