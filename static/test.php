@@ -10,6 +10,10 @@ class test extends DBAbstractModel{
 	public function get_results_from_query(){
 		parent::get_results_from_query();
 	}
+
+	public function execute_single_query(){
+		parent::execute_single_query();
+	}
 }
 
 
@@ -21,20 +25,16 @@ if($t->testConnection())
 var_dump($t->getCurrentConnections());
 // var_dump($t->getErrors());
 
-// echo '<h1>Error provocado</h1><br>';
-// $q = "SELECT ca FROM usuarios";
-// $t->setQuery($q);
-// $t->get_results_from_query();
-// var_dump($t->getErrors());
+echo '<h1>Error provocado (SELECT)</h1><br>';
+$q = "SELECT caca FROM usuarios";
+$t->setQuery($q);
+$t->get_results_from_query();
+echo $t->getRowCount();
+var_dump($t->getRows());
 
-// $q = "SELECT * FROM usuarios";
-// $t->setQuery($q);
 
-// echo $t->getQuery($q);
-// $t->get_results_from_query();
-// $aux = $t->getRows();
-// echo '<h1>AUX</h1><br>';
-// var_dump($aux);
-// echo '<h1>getRows()</h1><br>';
-// var_dump($t->getRows());
+echo '<h1>Error provocado (UPDATE)</h1><br>';
+$q = "UPDATE usuarios SET nombrse='pacone' WHERE idUsuario=81";
+$t->setQuery($q);
+$t->execute_single_query();
 ?>
