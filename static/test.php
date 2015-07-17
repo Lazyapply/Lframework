@@ -34,7 +34,7 @@ var_dump($t->getRows());
 
 
 echo '<h1>Error provocado (UPDATE)</h1><br>';
-$q = "UPDATE usuarios SET nombrse='pacone' WHERE idUsuario=81";
+$q = "UPDATE usuarios SET nombre='paco' WHERE idUsuario=81";
 $t->setQuery($q);
 $t->execute_single_query();
 ?>
