@@ -38,6 +38,7 @@
 					if(@$_SESSION['userPerm'] == 1){
 						if(empty($_POST)){
 							//llamamos a la vista
+
 							return usuarios_retornar_vista(VIEW_ADD);
 						}
 						else{

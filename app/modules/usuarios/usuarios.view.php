@@ -7,7 +7,7 @@
 		Alias:				----
 		Fecha creacion:		14/11/2014
 		Ultima modif:		27/11/2014
-		Versión: 			0.1
+		Versión: 			0.2
 		Autor: 				@dvel_
 
 
@@ -42,12 +42,12 @@
 						);
 
 	
-	function usuarios_get_template($template){
+	function usuarios_get_template($template, $mode){
 
 		require_once CORE_PATH.DS.CORE.'.model.php';
 		$c = new core();
 		//recogemos el layout del core
-		$layout = $c->getLayout();
+		$layout = $c->getLayout($mode);
 
 		#cabecera, template, footer
 		$t =	MODULES.DS.USUARIOS.DS.'templates'.DS.$template.'.html';
@@ -76,11 +76,11 @@
 		return $html;
 	}
 
-	function usuarios_retornar_vista($vista, $data = array()){
+	function usuarios_retornar_vista($vista, $data = array(), $mode = 1){
 
 		$diccionario = $GLOBALS['diccionario'];
 
-		$html = usuarios_get_template($vista);
+		$html = usuarios_get_template($vista, $mode);
 		$html = str_replace('{subtitulo}', $diccionario['subtitulo'][$vista], $html);
 		$html = usuarios_render_dinamic_data($html, $diccionario['links_menu']);
 
